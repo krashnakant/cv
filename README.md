@@ -1,4 +1,4 @@
-![cv](https://github.com/Krashnakant/cv/Krashna_cv.png)
+![cv](https://github.com/krashnakant/cv/blob/main/Krashna_cv.png)
 
 # License
 
