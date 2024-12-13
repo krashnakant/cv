@@ -91,7 +91,8 @@ export const RESUME_DATA = {
     "React/Next.js",
     "Node.js",
     "API Design",
-    "Java",
+    "Java 8-21",
+    "System Design",
     "Spring Boot",
     "Kotlin",
     "Github Actions",
@@ -108,9 +109,12 @@ export const RESUME_DATA = {
       title: "Bauhaus",
       techStack: [
         "TypeScript",
+        "Node.js",
+        "Java",
+        "Spring Boot",
         "React",
         "Vite",
-        "Nest.js",
+        "Nest.js/Nextjs",
         "Firebase",
         "Firestore",
         "Github Actions",
@@ -127,7 +131,7 @@ export const RESUME_DATA = {
     },
     {
       title: "Hse",
-      techStack: ["Kotlin", "TypeScript", "React", "Node.js", "SpringBoot", "GitLab", "AWS"],
+      techStack: ["Kotlin Server side", "TypeScript", "React", "Node.js", "SpringBoot", "GitLab", "AWS"],
       description:
         "Build new feature for checkout and payment and product details page",
       link: {
@@ -148,7 +152,7 @@ export const RESUME_DATA = {
     },
     {
       title: "Harman",
-      techStack: ["Java", "Spring Boot", "Bootstrap", "Jenkins"],
+      techStack: ["Java 8", "Spring Boot", "Bootstrap", "Jenkins"],
       description:
         "Build monitoring tools for the enterprise product in the business for multiple clients (BT)",
 
