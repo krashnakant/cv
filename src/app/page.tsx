@@ -11,7 +11,7 @@ import { ProjectCard } from "@/components/project-card";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
-  description: RESUME_DATA.summary,
+  description: RESUME_DATA.summary
 };
 
 export default function Page() {
@@ -37,6 +37,7 @@ export default function Page() {
             <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
               {RESUME_DATA.contact.email ? (
                 <Button
+                  key="email-button"
                   className="h-8 w-8"
                   variant="outline"
                   size="icon"
@@ -49,6 +50,7 @@ export default function Page() {
               ) : null}
               {RESUME_DATA.contact.tel ? (
                 <Button
+                  key="tel-button"
                   className="h-8 w-8"
                   variant="outline"
                   size="icon"
@@ -62,6 +64,9 @@ export default function Page() {
               {RESUME_DATA.contact.social.map((social) => (
                 <Button
                   key={social.name}
+                  id={
+                    social.name.toLowerCase().replace(/\s+/g, "-")
+                  }
                   className="h-8 w-8"
                   variant="outline"
                   size="icon"
@@ -75,12 +80,12 @@ export default function Page() {
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.contact.email ? (
-                <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                <a key="email" href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
                 </a>
               ) : null}
               {RESUME_DATA.contact.tel ? (
-                <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                <a key="tel" href={`tel:${RESUME_DATA.contact.tel}`}>
                   <span className="underline">{RESUME_DATA.contact.tel}</span>
                 </a>
               ) : null}
@@ -194,7 +199,8 @@ export default function Page() {
           ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
             url: socialMediaLink.url,
             title: socialMediaLink.name,
-          })),
+            key: socialMediaLink.name
+          }))
         ]}
       />
     </main>
