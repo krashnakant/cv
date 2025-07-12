@@ -37,7 +37,7 @@ export const CommandMenu = ({ links }: Props) => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-white p-2 text-center text-sm text-muted-foreground print:hidden">
+      <div className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-background p-2 text-center text-sm text-muted-foreground print:hidden">
         <div className="flex flex-col gap-1 sm:flex-row sm:justify-center sm:gap-4">
           <div>
             Press{" "}
