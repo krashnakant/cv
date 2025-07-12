@@ -8,6 +8,7 @@ import React from "react";
 export const metadata: Metadata = {
   title: "Krashna's Resume",
   description: "Krashna's Resume - Tech Lead, Full Stack Developer, DevOps Engineer",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 // If loading a variable font, you don't need to specify the font weight
