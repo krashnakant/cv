@@ -1,14 +1,18 @@
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css";
 import React from "react";
 
+export const viewport:Viewport  = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata: Metadata = {
-  title: "Krashna's Resume",
-  description: "Krashna's Resume - Tech Lead, Full Stack Developer, DevOps Engineer",
-  viewport: "width=device-width, initial-scale=1",
   metadataBase: new URL('https://krashna.in'),
   title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
   description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
@@ -70,6 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head>
+       <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />
         <meta name="theme-color" content="#ffffff" />
         <script
@@ -93,7 +98,6 @@ export default function RootLayout({
                 "addressCountry": "Germany"
               },
               "email": "krashna.chaurasia@yahoo.com",
-              "telephone": "+4917641127572",
               "sameAs": [
                 "https://github.com/krashnakant",
                 "https://www.linkedin.com/in/krashna-chaurasia/"
