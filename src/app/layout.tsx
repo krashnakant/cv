@@ -100,6 +100,14 @@ export default function RootLayout({
                 "AWS", "GCP", "Docker", "Kubernetes", "Terraform", "Microservices",
                 "DevOps", "Team Leadership", "Software Architecture"
               ],
+              "hasCredential": [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "name": "Google Cloud Professional Cloud Architect",
+                  "credentialCategory": "Professional Certification",
+                  "dateCreated": "2025"
+                }
+              ],
               "alumniOf": {
                 "@type": "EducationalOrganization",
                 "name": "Rajiv Gandhi Proudyogiki Vishwavidyalaya"

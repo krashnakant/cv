@@ -9,7 +9,7 @@ export const RESUME_DATA = {
   about:
     "Senior Full Stack Developer & Tech Lead with 10+ years of experience building scalable applications and leading high-performing teams in enterprise environments.",
   summary:
-    "Accomplished Senior Full Stack Developer and Tech Lead with over a decade of experience architecting and delivering enterprise-scale applications. Proven track record of leading cross-functional teams, implementing cloud infrastructure, and driving digital transformation initiatives. Expertise in modern web technologies, microservices architecture, and DevOps practices, with a strong focus on scalability, performance, and maintainability.",
+    "Accomplished Senior Full Stack Developer and Tech Lead with over a decade of experience architecting and delivering enterprise-scale applications. GCP Professional Cloud Architect certified (2025). Proven track record of leading cross-functional teams, implementing cloud infrastructure, and driving digital transformation initiatives. Expertise in modern web technologies, microservices architecture, and DevOps practices, with a strong focus on scalability, performance, and maintainability.",
   avatarUrl: "https://avatars.githubusercontent.com/u/26169918?v=4",
   personalWebsiteUrl: "https://krashna.in",
   contact: {
@@ -30,6 +30,12 @@ export const RESUME_DATA = {
   },
   education: [
     {
+      school: "Google Cloud",
+      degree: "Professional Cloud Architect Certification",
+      start: "2025",
+      end: "2025"
+    },
+    {
       school: "Rajiv Gandhi Proudyogiki Vishwavidyalaya, India",
       degree: "Bachelor's Degree in Electronics and Telecommunication Engineering",
       start: "2008",
@@ -45,7 +51,7 @@ export const RESUME_DATA = {
       start: "2021",
       end: "now",
       description:
-        "Led a cross-functional team of 8 developers in architecting and delivering enterprise configurator platform serving 500K+ monthly users. Built cloud infrastructure from scratch on GCP, reducing deployment time by 70% and improving system reliability to 99.9% uptime. Implemented CI/CD pipelines and DevOps practices that accelerated development velocity by 40%. Tech stack: TypeScript, Node.js, React, GCP, Terraform, Docker, Firestore."
+        "Led a cross-functional team of 8 developers in architecting and delivering enterprise configurator platform serving 100K+ monthly users. Built cloud infrastructure from scratch on GCP, reducing deployment time by 70% and improving system reliability to 99.9% uptime. Implemented CI/CD pipelines and DevOps practices that accelerated development velocity by 40%. Tech stack: TypeScript, Node.js, React, GCP, Terraform, Docker, Firestore."
     },
     {
       company: "Hse",
@@ -55,7 +61,7 @@ export const RESUME_DATA = {
       start: "2019",
       end: "2021",
       description:
-        "Developed and maintained e-commerce platform handling 100K+ daily transactions with 99.95% uptime. Built scalable microservices architecture processing $10M+ in annual revenue. Optimized checkout flow reducing cart abandonment by 25% and implemented payment gateway integrations. Tech stack: Kotlin, Spring Boot, React, AWS, Microservices."
+        "Developed and maintained e-commerce platform handling 10K+ daily transactions with 99.95% uptime. Built scalable microservices architecture processing $1-2M+ in annual revenue. Optimized checkout flow reducing cart abandonment by 25% and implemented payment gateway integrations. Tech stack: Kotlin, Spring Boot, React, AWS, Microservices."
     },
     {
       company: "Harman",
