@@ -25,6 +25,10 @@ export const CommandMenu = ({ links }: Props) => {
         e.preventDefault();
         setOpen((open) => !open);
       }
+      if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        window.print();
+      }
     };
 
     document.addEventListener("keydown", down);
@@ -33,13 +37,23 @@ export const CommandMenu = ({ links }: Props) => {
 
   return (
     <>
-      <p className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-white p-1 text-center text-sm text-muted-foreground print:hidden">
-        Press{" "}
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>J
-        </kbd>{" "}
-        to open the command menu
-      </p>
+      <div className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-background p-2 text-center text-sm text-muted-foreground print:hidden">
+        <div className="flex flex-col gap-1 sm:flex-row sm:justify-center sm:gap-4">
+          <div>
+            Press{" "}
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+              <span className="text-xs">⌘</span>J
+            </kbd>{" "}
+            for menu
+          </div>
+          <div className="font-semibold text-primary">
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-primary/10 px-1.5 font-mono text-[10px] font-bold text-primary opacity-100 ring-1 ring-primary/20">
+              <span className="text-xs">⌘</span>P
+            </kbd>{" "}
+            to print
+          </div>
+        </div>
+      </div>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>

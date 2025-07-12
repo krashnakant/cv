@@ -6,6 +6,9 @@ import "./globals.css";
 import React from "react";
 
 export const metadata: Metadata = {
+  title: "Krashna's Resume",
+  description: "Krashna's Resume - Tech Lead, Full Stack Developer, DevOps Engineer",
+  viewport: "width=device-width, initial-scale=1",
   metadataBase: new URL('https://krashna.in'),
   title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
   description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
