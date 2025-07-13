@@ -68,3 +68,30 @@
 .print-force-new-page {
   page-break-before: always;
 }
+
+@media print {
+  /* Optimize page breaks for better flow */
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Reduce excessive spacing in print */
+  .print-compact {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Allow more natural page breaks */
+  .print-auto-break {
+    page-break-inside: auto;
+  }
+  
+  /* Ensure better spacing between sections */
+  section {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Optimize grid layout for print */
+  .print-grid-optimization {
+    page-break-inside: auto;
+  }
+}
