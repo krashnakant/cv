@@ -111,3 +111,26 @@
     position: static !important;
   }
 }
+
+/* Mobile browser compatibility for sticky headers */
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .sticky-header-mobile {
+    position: -webkit-sticky;
+    position: sticky;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Ensure mobile browsers handle sticky correctly */
+@media screen and (max-width: 768px) {
+  .sticky {
+    /* Force hardware acceleration on mobile */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+}
