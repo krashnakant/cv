@@ -17,28 +17,20 @@ export function StickyHeader({ children, className, id }: StickyHeaderProps) {
     const header = headerRef.current;
     if (!header) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When the header is not intersecting and boundingClientRect.top <= 0,
-        // it means the header is stuck to the top
-        const stuck = !entry.isIntersecting && entry.boundingClientRect.top <= 0;
-        setIsStuck(stuck);
-        
-        // Add a subtle animation delay for smoother transitions
-        if (stuck) {
-          header.style.animationDelay = "0.1s";
-        }
-      },
-      {
-        threshold: [0, 1],
-        rootMargin: "-1px 0px 0px 0px", // Trigger just before it sticks
-      }
-    );
+    const handleScroll = () => {
+      const rect = header.getBoundingClientRect();
+      const isCurrentlyStuck = rect.top <= 0;
+      setIsStuck(isCurrentlyStuck);
+    };
 
-    observer.observe(header);
+    // Initial check
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -47,16 +39,21 @@ export function StickyHeader({ children, className, id }: StickyHeaderProps) {
       ref={headerRef}
       id={id}
       className={cn(
-        "sticky-header",
+        "sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-transparent py-3 transition-all duration-300 print:static print:bg-transparent print:border-transparent print:shadow-none",
         {
-          stuck: isStuck,
+          "border-border bg-background/98 shadow-md": isStuck,
         },
         className
       )}
-      role="banner"
-      aria-label="Section heading"
     >
-      {children}
+      <div className={cn(
+        "transition-colors duration-300",
+        {
+          "text-primary": isStuck,
+        }
+      )}>
+        {children}
+      </div>
     </div>
   );
 }

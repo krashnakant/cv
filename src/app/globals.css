@@ -105,39 +105,9 @@
   }
 }
 
-/* Sticky header styles for screen only */
-@media screen {
-  .sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: hsl(var(--background) / 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid hsl(var(--border) / 0.1);
-    padding: 0.75rem 0;
-    margin: -0.75rem 0 0.75rem 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(0);
-  }
-  
-  .sticky-header.stuck {
-    background: hsl(var(--background) / 0.98);
-    border-bottom-color: hsl(var(--border) / 0.3);
-    box-shadow: 0 2px 8px 0 hsl(var(--foreground) / 0.12), 
-                0 1px 3px 0 hsl(var(--foreground) / 0.08);
-    transform: translateY(-1px);
-  }
-  
-  /* Ensure proper stacking order */
-  .sticky-header:nth-child(1) { z-index: 15; }
-  .sticky-header:nth-child(2) { z-index: 14; }
-  .sticky-header:nth-child(3) { z-index: 13; }
-  .sticky-header:nth-child(4) { z-index: 12; }
-  .sticky-header:nth-child(5) { z-index: 11; }
-  
-  /* Enhanced visual feedback when stuck */
-  .sticky-header.stuck h2 {
-    color: hsl(var(--primary));
-    transition: color 0.3s ease;
+/* Print-friendly styles for sticky headers */
+@media print {
+  .sticky {
+    position: static !important;
   }
 }
