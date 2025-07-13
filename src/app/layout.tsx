@@ -76,7 +76,10 @@ export default function RootLayout({
       <head>
        <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#b8a267" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Krashna Kant CV" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

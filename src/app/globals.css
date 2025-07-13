@@ -70,6 +70,12 @@
 }
 
 @media print {
+  /* Print page setup */
+  @page {
+    size: A4;
+    margin: 0.75in;
+  }
+  
   /* Optimize page breaks for better flow */
   .print-avoid-break {
     page-break-inside: avoid;
@@ -77,7 +83,7 @@
   
   /* Reduce excessive spacing in print */
   .print-compact {
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
   }
   
   /* Allow more natural page breaks */
@@ -87,7 +93,7 @@
   
   /* Ensure better spacing between sections */
   section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   
   /* Optimize grid layout for print */
@@ -102,6 +108,67 @@
     backdrop-filter: none !important;
     border: none !important;
     box-shadow: none !important;
+  }
+  
+  /* Print-specific optimizations */
+  body {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Better typography for print */
+  h1 {
+    font-size: 18pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h2 {
+    font-size: 14pt !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Compact contact info for print */
+  .print-contact-compact {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
+    font-size: 10pt !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Optimize cards for print */
+  .print-card-compact {
+    margin-bottom: 0.75rem !important;
+    padding: 0.5rem !important;
+    border: 1px solid #e5e5e5 !important;
+  }
+  
+  /* Optimize badges for print */
+  .print-badge {
+    font-size: 9pt !important;
+    padding: 0.125rem 0.25rem !important;
+    margin: 0.125rem !important;
+  }
+  
+  /* Optimize projects grid for print */
+  .print-projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Remove unnecessary padding in print */
+  .print-no-padding {
+    padding: 0 !important;
+  }
+  
+  /* Clean print links */
+  a {
+    color: #333 !important;
+    text-decoration: none !important;
   }
 }
 
