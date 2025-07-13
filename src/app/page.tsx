@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
+import { StickyHeader } from "@/components/ui/sticky-header";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -98,13 +99,17 @@ export default function Page() {
           </Avatar>
         </div>
         <Section>
-          <h2 className="text-xl font-bold">About</h2>
+          <StickyHeader id="about">
+            <h2 className="text-xl font-bold">About</h2>
+          </StickyHeader>
           <p className="text-pretty font-mono text-sm text-muted-foreground">
             {RESUME_DATA.summary}
           </p>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Work Experience</h2>
+          <StickyHeader id="work-experience">
+            <h2 className="text-xl font-bold">Work Experience</h2>
+          </StickyHeader>
           {RESUME_DATA.work.map((work) => {
             return (
               <Card key={work.company}>
@@ -144,7 +149,9 @@ export default function Page() {
           })}
         </Section>
         <Section className="print-avoid-break">
-          <h2 className="text-xl font-bold">Education</h2>
+          <StickyHeader id="education">
+            <h2 className="text-xl font-bold">Education</h2>
+          </StickyHeader>
           {RESUME_DATA.education.map((education) => {
             return (
               <Card key={education.school}>
@@ -164,7 +171,9 @@ export default function Page() {
           })}
         </Section>
         <Section className="print-avoid-break">
-          <h2 className="text-xl font-bold">Skills</h2>
+          <StickyHeader id="skills">
+            <h2 className="text-xl font-bold">Skills</h2>
+          </StickyHeader>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
               return <Badge key={skill} variant="skill">{skill}</Badge>;
@@ -173,7 +182,9 @@ export default function Page() {
         </Section>
 
         <Section className="print-auto-break scroll-mb-16">
-          <h2 className="text-xl font-bold">Projects</h2>
+          <StickyHeader id="projects">
+            <h2 className="text-xl font-bold">Projects</h2>
+          </StickyHeader>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             {RESUME_DATA.projects.map((project) => {
               return (
