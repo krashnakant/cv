@@ -11,81 +11,68 @@ interface StickyHeaderProps {
 
 export function StickyHeader({ children, className, id }: StickyHeaderProps) {
   const headerRef = useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
   const [isStuck, setIsStuck] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Detect mobile device
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    const header = headerRef.current;
+    if (!header) return;
+
+    const handleScroll = () => {
+      const rect = header.getBoundingClientRect();
+      const isCurrentlyStuck = rect.top <= 0;
+      setIsStuck(isCurrentlyStuck);
     };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    // Initial check
+    handleScroll();
 
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    // Use Intersection Observer to detect when sentinel goes out of view
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When sentinel is not visible, header is stuck
-        setIsStuck(!entry.isIntersecting);
-      },
-      {
-        rootMargin: "0px 0px 0px 0px",
-        threshold: 0,
-      }
-    );
-
-    observer.observe(sentinel);
+    // Use both scroll and resize events for better mobile support
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
   return (
-    <div className="relative">
-      {/* Sentinel element to detect when header should be stuck */}
-      <div ref={sentinelRef} className="absolute top-0 left-0 h-px w-full" style={{ top: '-1px' }} />
-      
-      <div
-        ref={headerRef}
-        id={id}
-        className={cn(
-          "sticky top-0 z-20 bg-background/95 backdrop-blur-sm border-b border-transparent py-3 transition-all duration-300 will-change-transform",
-          "print:static print:bg-transparent print:border-transparent print:shadow-none print:backdrop-blur-none",
-          {
-            "border-border bg-background/98 shadow-lg backdrop-blur-md": isStuck,
-            "transform-gpu": isMobile, // Enable GPU acceleration on mobile
-          },
-          className
-        )}
-        style={{
-          // Ensure sticky works on iOS Safari and other mobile browsers
-          position: '-webkit-sticky',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden',
-          ...(isMobile && {
-            // Additional mobile optimizations
-            WebkitTransform: 'translate3d(0, 0, 0)',
-            transform: 'translate3d(0, 0, 0)',
-            WebkitPerspective: 1000,
-            perspective: 1000,
-          }),
-        } as React.CSSProperties}
-      >
-        <div className={cn(
-          "transition-colors duration-300",
-          {
-            "text-primary font-semibold": isStuck,
-          }
-        )}>
-          {children}
-        </div>
+    <div
+      ref={headerRef}
+      id={id}
+      className={cn(
+        // Force sticky with important and ensure it works on mobile
+        "sticky top-0 z-30 py-3 transition-all duration-300",
+        "bg-background/95 backdrop-blur-sm border-b border-transparent",
+        "print:static print:bg-transparent print:border-transparent print:shadow-none",
+        {
+          "border-border bg-background/98 shadow-lg backdrop-blur-md border-b-2": isStuck,
+        },
+        className
+      )}
+      style={{
+        // Force sticky positioning with vendor prefixes
+        position: 'sticky',
+        WebkitPosition: 'sticky',
+        top: 0,
+        zIndex: 30,
+        // Force hardware acceleration
+        transform: 'translateZ(0)',
+        WebkitTransform: 'translateZ(0)',
+        // Prevent webkit scrolling issues
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        // Additional mobile fixes
+        WebkitOverflowScrolling: 'touch',
+      } as React.CSSProperties}
+    >
+      <div className={cn(
+        "transition-colors duration-300",
+        {
+          "text-primary font-semibold": isStuck,
+        }
+      )}>
+        {children}
       </div>
     </div>
   );
