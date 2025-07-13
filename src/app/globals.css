@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 
 @layer base {
@@ -53,13 +51,156 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
+  
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 .print-force-new-page {
   page-break-before: always;
+}
+
+@media print {
+  /* Print page setup */
+  @page {
+    size: A4;
+    margin: 0.75in;
+  }
+  
+  /* Optimize page breaks for better flow */
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Reduce excessive spacing in print */
+  .print-compact {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Allow more natural page breaks */
+  .print-auto-break {
+    page-break-inside: auto;
+  }
+  
+  /* Ensure better spacing between sections */
+  section {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Optimize grid layout for print */
+  .print-grid-optimization {
+    page-break-inside: auto;
+  }
+  
+  /* Hide sticky headers in print */
+  .sticky-header {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Print-specific optimizations */
+  body {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Better typography for print */
+  h1 {
+    font-size: 18pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h2 {
+    font-size: 14pt !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Compact contact info for print */
+  .print-contact-compact {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
+    font-size: 10pt !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Optimize cards for print */
+  .print-card-compact {
+    margin-bottom: 0.75rem !important;
+    padding: 0.5rem !important;
+    border: 1px solid #e5e5e5 !important;
+  }
+  
+  /* Optimize badges for print */
+  .print-badge {
+    font-size: 9pt !important;
+    padding: 0.125rem 0.25rem !important;
+    margin: 0.125rem !important;
+  }
+  
+  /* Optimize projects grid for print */
+  .print-projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Remove unnecessary padding in print */
+  .print-no-padding {
+    padding: 0 !important;
+  }
+  
+  /* Clean print links */
+  a {
+    color: #333 !important;
+    text-decoration: none !important;
+  }
+}
+
+/* Print-friendly styles for sticky headers */
+@media print {
+  .sticky {
+    position: static !important;
+  }
+}
+
+/* Enhance sticky positioning for better mobile support */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Mobile-specific sticky fixes */
+@media screen and (max-width: 768px) {
+  /* Force hardware acceleration and proper sticky behavior on mobile */
+  .sticky {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+  }
+  
+  /* Ensure main containers don't interfere with sticky */
+  main {
+    overflow: visible;
+  }
 }

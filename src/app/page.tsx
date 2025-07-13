@@ -2,8 +2,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
+import { Footer } from "@/components/footer";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
+import { StickyHeader } from "@/components/ui/sticky-header";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -16,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-6">
+    <main className="container relative mx-auto scroll-my-12 p-4 print:p-6 print:print-no-padding md:p-16">
+      <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
@@ -78,7 +80,7 @@ export default function Page() {
                 </Button>
               ))}
             </div>
-            <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
+            <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:print-contact-compact">
               {RESUME_DATA.contact.email ? (
                 <a key="email" href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
@@ -98,16 +100,20 @@ export default function Page() {
           </Avatar>
         </div>
         <Section>
-          <h2 className="text-xl font-bold">About</h2>
+          <StickyHeader id="about">
+            <h2 className="text-xl font-bold">About</h2>
+          </StickyHeader>
           <p className="text-pretty font-mono text-sm text-muted-foreground">
             {RESUME_DATA.summary}
           </p>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Work Experience</h2>
+          <StickyHeader id="work-experience">
+            <h2 className="text-xl font-bold">Work Experience</h2>
+          </StickyHeader>
           {RESUME_DATA.work.map((work) => {
             return (
-              <Card key={work.company}>
+              <Card key={work.company} className="print:print-card-compact">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
@@ -143,11 +149,13 @@ export default function Page() {
             );
           })}
         </Section>
-        <Section>
-          <h2 className="text-xl font-bold">Education</h2>
+        <Section className="print-avoid-break">
+          <StickyHeader id="education">
+            <h2 className="text-xl font-bold">Education</h2>
+          </StickyHeader>
           {RESUME_DATA.education.map((education) => {
             return (
-              <Card key={education.school}>
+              <Card key={education.school} className="print:print-card-compact">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="font-semibold leading-none">
@@ -163,18 +171,22 @@ export default function Page() {
             );
           })}
         </Section>
-        <Section>
-          <h2 className="text-xl font-bold">Skills</h2>
+        <Section className="print-avoid-break">
+          <StickyHeader id="skills">
+            <h2 className="text-xl font-bold">Skills</h2>
+          </StickyHeader>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
-              return <Badge key={skill} variant="skill">{skill}</Badge>;
+              return <Badge key={skill} variant="skill" className="print:print-badge">{skill}</Badge>;
             })}
           </div>
         </Section>
 
-        <Section className="print-force-new-page scroll-mb-16">
-          <h2 className="text-xl font-bold">Projects</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+        <Section className="print-auto-break scroll-mb-16">
+          <StickyHeader id="projects">
+            <h2 className="text-xl font-bold">Projects</h2>
+          </StickyHeader>
+          <div className="-mx-3 grid grid-cols-1 gap-3 print:print-projects-grid md:grid-cols-2 lg:grid-cols-3">
             {RESUME_DATA.projects.map((project) => {
               return (
                 <ProjectCard
@@ -183,12 +195,15 @@ export default function Page() {
                   description={project.description}
                   tags={project.techStack}
                   link={"link" in project ? project.link.href : undefined}
+                  className="print:print-card-compact"
                 />
               );
             })}
           </div>
         </Section>
       </section>
+
+      <Footer />
 
       <CommandMenu
         links={[

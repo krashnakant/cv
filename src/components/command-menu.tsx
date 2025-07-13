@@ -37,7 +37,7 @@ export const CommandMenu = ({ links }: Props) => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-background p-2 text-center text-sm text-muted-foreground print:hidden">
+      <div className="fixed bottom-0 left-0 right-0 border-t border-t-border bg-background/95 backdrop-blur-sm p-2 text-center text-sm text-muted-foreground print:hidden shadow-lg">
         <div className="flex flex-col gap-1 sm:flex-row sm:justify-center sm:gap-4">
           <div>
             Press{" "}
@@ -47,7 +47,7 @@ export const CommandMenu = ({ links }: Props) => {
             for menu
           </div>
           <div className="font-semibold text-primary">
-            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-primary/10 px-1.5 font-mono text-[10px] font-bold text-primary opacity-100 ring-1 ring-primary/20">
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-primary bg-primary text-primary-foreground px-1.5 font-mono text-[10px] font-bold opacity-100 shadow-sm">
               <span className="text-xs">⌘</span>P
             </kbd>{" "}
             to print
