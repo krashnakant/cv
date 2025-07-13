@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
+import { Footer } from "@/components/footer";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { StickyHeader } from "@/components/ui/sticky-header";
@@ -200,6 +201,8 @@ export default function Page() {
           </div>
         </Section>
       </section>
+
+      <Footer />
 
       <CommandMenu
         links={[
