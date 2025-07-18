@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { StickyHeader } from "@/components/ui/sticky-header";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -50,19 +50,6 @@ export default function Page() {
                   </a>
                 </Button>
               ) : null}
-              {RESUME_DATA.contact.tel ? (
-                <Button
-                  key="tel-button"
-                  className="h-8 w-8"
-                  variant="outline"
-                  size="icon"
-                  asChild
-                >
-                  <a href={`tel:${RESUME_DATA.contact.tel}`}>
-                    <PhoneIcon className="h-4 w-4" />
-                  </a>
-                </Button>
-              ) : null}
               {RESUME_DATA.contact.social.map((social) => (
                 <Button
                   key={social.name}
@@ -84,11 +71,6 @@ export default function Page() {
               {RESUME_DATA.contact.email ? (
                 <a key="email" href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
-                </a>
-              ) : null}
-              {RESUME_DATA.contact.tel ? (
-                <a key="tel" href={`tel:${RESUME_DATA.contact.tel}`}>
-                  <span className="underline">{RESUME_DATA.contact.tel}</span>
                 </a>
               ) : null}
             </div>

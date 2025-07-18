@@ -14,7 +14,6 @@ export const RESUME_DATA = {
   personalWebsiteUrl: "https://krashna.in",
   contact: {
     email: "krashna.chaurasia@yahoo.com",
-    tel: "+4917641127572",
     social: [
       {
         name: "GitHub",
