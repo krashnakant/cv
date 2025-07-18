@@ -4,7 +4,7 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
-import { MailIcon, PhoneIcon, MapPinIcon, CalendarIcon, DownloadIcon } from "lucide-react";
+import { MailIcon, MapPinIcon, CalendarIcon, DownloadIcon } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,15 +29,6 @@ export function Footer() {
                 >
                   <MailIcon className="h-4 w-4" />
                   {RESUME_DATA.contact.email}
-                </a>
-              )}
-              {RESUME_DATA.contact.tel && (
-                <a
-                  href={`tel:${RESUME_DATA.contact.tel}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <PhoneIcon className="h-4 w-4" />
-                  {RESUME_DATA.contact.tel}
                 </a>
               )}
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
