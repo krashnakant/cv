@@ -8,12 +8,16 @@ export const RESUME_DATA = {
   locationLink: "https://www.google.com/maps/place/Mannheim",
   about:
     "Senior Full Stack Developer & Tech Lead with 10+ years of experience building scalable applications and leading high-performing teams in enterprise environments.",
+  careerObjective:
+    "Seeking Technical Lead roles in enterprise software development, focusing on cloud-native architecture, team leadership, and scalable system design in technology-driven organizations.",
   summary:
     "Accomplished Senior Full Stack Developer and Tech Lead with over a decade of experience architecting and delivering enterprise-scale applications. GCP Professional Cloud Architect certified (2025). Proven track record of leading cross-functional teams, implementing cloud infrastructure, and driving digital transformation initiatives. Expertise in modern web technologies, microservices architecture, and DevOps practices, with a strong focus on scalability, performance, and maintainability.",
   avatarUrl: "https://avatars.githubusercontent.com/u/26169918?v=4",
   personalWebsiteUrl: "https://krashna.in",
   contact: {
     email: "krashna.chaurasia@yahoo.com",
+    workAuthorization: "Germany Permanent Resident - No Visa Sponsorship Required",
+    availability: "Available with 3 months notice",
     social: [
       {
         name: "GitHub",
@@ -27,12 +31,26 @@ export const RESUME_DATA = {
       }
     ]
   },
+  languages: [
+    {
+      language: "English",
+      proficiency: "Fluent (Professional Working)"
+    },
+    {
+      language: "German",
+      proficiency: "Elementary (A2)"
+    },
+    {
+      language: "Hindi",
+      proficiency: "Native"
+    }
+  ],
   education: [
     {
       school: "Google Cloud",
-      degree: "Professional Cloud Architect Certification",
+      degree: "Professional Cloud Architect Certification (Passed August 2025)",
       start: "2025",
-      end: "2025"
+      end: "2027"
     },
     {
       school: "Rajiv Gandhi Proudyogiki Vishwavidyalaya, India",
@@ -109,7 +127,10 @@ export const RESUME_DATA = {
     "CI/CD",
     "Github Actions",
     "Team Leadership",
-    "Agile/Scrum"
+    "Agile/Scrum",
+    "Cross-cultural Communication",
+    "Stakeholder Management",
+    "Mentoring & Coaching"
   ],
   projects: [
     {
@@ -222,5 +243,6 @@ export const RESUME_DATA = {
         href: "https://www.synchrony.com/"
       }
     }
-  ]
+  ],
+  references: "References and recommendation letters available upon request via email"
 } as const;

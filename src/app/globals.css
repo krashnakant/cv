@@ -1,28 +1,29 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 0 0% 9%;
-    --card: 40 35% 88%;
-    --card-foreground: 195 44% 18%;
-    --popover: 40 35% 88%;
-    --popover-foreground: 195 44% 18%;
-    --primary: 49 36% 54%;
-    --primary-foreground: 40 35% 88%;
-    --secondary: 40 25% 80%;
-    --secondary-foreground: 195 44% 18%;
-    --muted: 40 25% 80%;
-    --muted-foreground: 195 30% 35%;
-    --accent: 40 25% 80%;
-    --accent-foreground: 195 44% 18%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 35% 88%;
-    --border: 40 20% 75%;
-    --input: 40 20% 75%;
-    --ring: 49 36% 54%;
-    --radius: 0.5rem;
+    --background: 0 0% 100%;
+    --foreground: 222 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 15%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 15% 15%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 98%;
+    --accent-foreground: 222 15% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -57,7 +58,12 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "rlig" 1, "calt" 1, "liga" 1;
+    font-variant-numeric: tabular-nums;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   html {
@@ -112,22 +118,36 @@
   
   /* Print-specific optimizations */
   body {
-    font-size: 11pt !important;
-    line-height: 1.4 !important;
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
     -webkit-print-color-adjust: exact !important;
     color-adjust: exact !important;
   }
   
   /* Better typography for print */
   h1 {
-    font-size: 18pt !important;
-    margin-bottom: 0.5rem !important;
+    font-size: 24pt !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 700 !important;
   }
   
   h2 {
+    font-size: 16pt !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 1.25rem !important;
+    font-weight: 700 !important;
+  }
+  
+  h3 {
     font-size: 14pt !important;
-    margin-bottom: 0.5rem !important;
-    margin-top: 1rem !important;
+    margin-bottom: 0.25rem !important;
+    font-weight: 600 !important;
+  }
+  
+  h4 {
+    font-size: 12pt !important;
+    margin-bottom: 0.25rem !important;
+    font-weight: 500 !important;
   }
   
   /* Compact contact info for print */
@@ -141,9 +161,11 @@
   
   /* Optimize cards for print */
   .print-card-compact {
-    margin-bottom: 0.75rem !important;
-    padding: 0.5rem !important;
-    border: 1px solid #e5e5e5 !important;
+    margin-bottom: 1rem !important;
+    padding: 0.75rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.5rem !important;
+    background: white !important;
   }
   
   /* Optimize badges for print */
@@ -156,8 +178,8 @@
   /* Optimize projects grid for print */
   .print-projects-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.5rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
   
   /* Remove unnecessary padding in print */
@@ -203,4 +225,49 @@
   main {
     overflow: visible;
   }
+  
+  /* Mobile typography adjustments */
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Enhanced visual styles */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+}
+
+/* Smooth transitions for interactive elements */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Better text rendering */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Improved link styles */
+a {
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: hsl(var(--primary));
 }
