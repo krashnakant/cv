@@ -68,6 +68,13 @@
   
   html {
     scroll-behavior: smooth;
+    /* Safari smooth scrolling support */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Improve Safari scroll performance */
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

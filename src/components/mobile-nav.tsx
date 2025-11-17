@@ -20,16 +20,29 @@ export function MobileNav() {
   const [open, setOpen] = React.useState(false)
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      // Get the element's position
-      const yOffset = -20 // Offset from top (adjust for sticky header)
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+    setOpen(false)
 
-      // Smooth scroll to the calculated position
-      window.scrollTo({ top: y, behavior: "smooth" })
-      setOpen(false)
-    }
+    // Small delay to allow drawer to close first (Safari compatibility)
+    setTimeout(() => {
+      const element = document.getElementById(id)
+      if (element) {
+        // Get the element's position using scrollY (Safari-compatible)
+        const yOffset = -80 // Offset from top (adjust for sticky header and mobile spacing)
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.scrollY + yOffset
+
+        // Use scrollTo with smooth behavior (Safari-compatible)
+        try {
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          })
+        } catch (e) {
+          // Fallback for older browsers
+          window.scrollTo(0, offsetPosition)
+        }
+      }
+    }, 300) // Wait for drawer close animation
   }
 
   return (

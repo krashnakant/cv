@@ -46,12 +46,21 @@ export function SectionNav() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      // Get the element's position
-      const yOffset = -20 // Offset from top (adjust for sticky header)
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+      // Get the element's position using scrollY (Safari-compatible)
+      const yOffset = -80 // Offset from top (adjust for sticky header)
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.scrollY + yOffset
 
-      // Smooth scroll to the calculated position
-      window.scrollTo({ top: y, behavior: "smooth" })
+      // Use scrollTo with smooth behavior (Safari-compatible)
+      try {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        })
+      } catch (e) {
+        // Fallback for older browsers
+        window.scrollTo(0, offsetPosition)
+      }
     }
   }
 
