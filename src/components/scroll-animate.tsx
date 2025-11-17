@@ -1,25 +1,31 @@
 "use client"
 
-import { cn } from "@/lib/utils";
-import React from "react";
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ScrollAnimateProps {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+}
 
-export function Section({ className, ...props }: BadgeProps) {
+export function ScrollAnimate({ children, className, delay = 0 }: ScrollAnimateProps) {
   const [isVisible, setIsVisible] = React.useState(false)
-  const ref = React.useRef<HTMLElement>(null)
+  const ref = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setTimeout(() => {
+            setIsVisible(true)
+          }, delay)
           observer.disconnect()
         }
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        rootMargin: "0px 0px -100px 0px",
       }
     )
 
@@ -30,17 +36,18 @@ export function Section({ className, ...props }: BadgeProps) {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [delay])
 
   return (
-    <section
+    <div
       ref={ref}
       className={cn(
-        "flex min-h-0 flex-col gap-y-3 section-animate print:opacity-100 print:transform-none",
+        "section-animate",
         isVisible && "in-view",
         className
       )}
-      {...props}
-    />
-  );
+    >
+      {children}
+    </div>
+  )
 }

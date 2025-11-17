@@ -271,3 +271,71 @@ a {
 a:hover {
   color: hsl(var(--primary));
 }
+
+/* Scroll animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+/* Intersection Observer classes */
+.section-animate {
+  opacity: 0;
+}
+
+.section-animate.in-view {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Stagger animations for children */
+.stagger-animate > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-animate.in-view > * {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.stagger-animate.in-view > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-animate.in-view > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-animate.in-view > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-animate.in-view > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-animate.in-view > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
