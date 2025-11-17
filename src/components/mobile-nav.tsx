@@ -48,7 +48,7 @@ export function MobileNav() {
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className="w-full text-left px-4 py-3 rounded-lg hover:bg-muted transition-colors text-sm font-medium"
+                className="w-full text-left px-4 py-3 rounded-lg hover:bg-muted transition-colors text-sm font-medium text-foreground hover:text-foreground"
               >
                 {label}
               </button>
