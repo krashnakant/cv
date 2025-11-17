@@ -100,24 +100,24 @@ export default function Page() {
             <AvatarFallback className="text-xl font-semibold">{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <Section>
-          <StickyHeader id="about">
+        <Section id="about">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">About</h2>
           </StickyHeader>
           <p className="text-pretty text-base leading-relaxed text-foreground/80 max-w-3xl">
             {RESUME_DATA.summary}
           </p>
         </Section>
-        <Section>
-          <StickyHeader id="objective">
+        <Section id="objective">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Career Objective</h2>
           </StickyHeader>
           <p className="text-pretty text-base leading-relaxed text-foreground/80 max-w-3xl">
             {RESUME_DATA.careerObjective}
           </p>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="logistics">
+        <Section className="print-avoid-break" id="logistics">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Professional Information</h2>
           </StickyHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -139,8 +139,8 @@ export default function Page() {
             </div>
           </div>
         </Section>
-        <Section>
-          <StickyHeader id="work-experience">
+        <Section id="work-experience">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Work Experience</h2>
           </StickyHeader>
           <div className="space-y-4">
@@ -183,8 +183,8 @@ export default function Page() {
           })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="education">
+        <Section className="print-avoid-break" id="education">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Education</h2>
           </StickyHeader>
           <div className="space-y-4">
@@ -209,8 +209,8 @@ export default function Page() {
           })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="skills">
+        <Section className="print-avoid-break" id="skills">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Skills</h2>
           </StickyHeader>
           <div className="flex flex-wrap gap-2">
@@ -219,8 +219,8 @@ export default function Page() {
             })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="languages">
+        <Section className="print-avoid-break" id="languages">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Languages</h2>
           </StickyHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -233,8 +233,8 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section className="print-auto-break scroll-mb-16">
-          <StickyHeader id="projects">
+        <Section className="print-auto-break scroll-mb-16" id="projects">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Projects</h2>
           </StickyHeader>
           <div className="-mx-3 grid grid-cols-1 gap-6 print:print-projects-grid md:grid-cols-2 lg:grid-cols-3">

@@ -27,7 +27,7 @@ export function MobileNav() {
       const element = document.getElementById(id)
       if (element) {
         // Get the element's position using scrollY (Safari-compatible)
-        const yOffset = -80 // Offset from top (adjust for sticky header and mobile spacing)
+        const yOffset = -100 // Offset from top (adjust for sticky header and spacing)
         const elementPosition = element.getBoundingClientRect().top
         const offsetPosition = elementPosition + window.scrollY + yOffset
 
