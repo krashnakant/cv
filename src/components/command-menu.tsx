@@ -62,10 +62,12 @@ export const CommandMenu = ({ links }: Props) => {
             <CommandItem
               onSelect={() => {
                 setOpen(false);
-                window.print();
+                setTimeout(() => {
+                  window.print();
+                }, 100);
               }}
             >
-              <span>Print</span>
+              <span>Print Resume</span>
             </CommandItem>
           </CommandGroup>
           <CommandGroup heading="Links">
@@ -74,7 +76,9 @@ export const CommandMenu = ({ links }: Props) => {
                 key={url}
                 onSelect={() => {
                   setOpen(false);
-                  window.open(url, "_blank");
+                  setTimeout(() => {
+                    window.open(url, "_blank", "noopener,noreferrer");
+                  }, 100);
                 }}
               >
                 <span>{title}</span>

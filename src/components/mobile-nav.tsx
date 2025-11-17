@@ -22,7 +22,12 @@ export function MobileNav() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
+      // Get the element's position
+      const yOffset = -20 // Offset from top (adjust for sticky header)
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+      // Smooth scroll to the calculated position
+      window.scrollTo({ top: y, behavior: "smooth" })
       setOpen(false)
     }
   }
