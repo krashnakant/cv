@@ -6,6 +6,8 @@ export function ScrollProgress() {
   const [progress, setProgress] = React.useState(0)
 
   React.useEffect(() => {
+    let rafId: number | null = null
+
     const updateProgress = () => {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
@@ -13,17 +15,35 @@ export function ScrollProgress() {
       setProgress(scrollPercentage)
     }
 
-    window.addEventListener("scroll", updateProgress, { passive: true })
+    const handleScroll = () => {
+      // Cancel any pending animation frame
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId)
+      }
+
+      // Request new animation frame for smooth updates
+      rafId = requestAnimationFrame(updateProgress)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
     updateProgress()
 
-    return () => window.removeEventListener("scroll", updateProgress)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId)
+      }
+    }
   }, [])
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-1.5 md:h-1 bg-transparent print:hidden">
       <div
-        className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out shadow-lg"
-        style={{ width: `${progress}%` }}
+        className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-lg"
+        style={{
+          width: `${progress}%`,
+          transition: 'none' // Remove CSS transition for smoother scroll-based updates
+        }}
         role="progressbar"
         aria-valuenow={Math.round(progress)}
         aria-valuemin={0}
