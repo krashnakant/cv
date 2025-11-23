@@ -37,7 +37,7 @@ export const CommandMenu = ({ links }: Props) => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 border-t border-t-border bg-background/95 backdrop-blur-sm p-2 text-center text-sm text-muted-foreground print:hidden shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 border-t border-t-border bg-background/95 backdrop-blur-sm p-2 text-center text-sm text-muted-foreground print:hidden shadow-lg hidden md:block">
         <div className="flex flex-col gap-1 sm:flex-row sm:justify-center sm:gap-4">
           <div>
             Press{" "}
@@ -62,10 +62,12 @@ export const CommandMenu = ({ links }: Props) => {
             <CommandItem
               onSelect={() => {
                 setOpen(false);
-                window.print();
+                setTimeout(() => {
+                  window.print();
+                }, 100);
               }}
             >
-              <span>Print</span>
+              <span>Print Resume</span>
             </CommandItem>
           </CommandGroup>
           <CommandGroup heading="Links">
@@ -74,7 +76,9 @@ export const CommandMenu = ({ links }: Props) => {
                 key={url}
                 onSelect={() => {
                   setOpen(false);
-                  window.open(url, "_blank");
+                  setTimeout(() => {
+                    window.open(url, "_blank", "noopener,noreferrer");
+                  }, 100);
                 }}
               >
                 <span>{title}</span>

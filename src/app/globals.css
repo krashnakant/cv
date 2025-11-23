@@ -68,7 +68,86 @@
   
   html {
     scroll-behavior: smooth;
+    /* Safari smooth scrolling support */
+    -webkit-overflow-scrolling: touch;
   }
+
+  /* Improve Safari scroll performance */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Micro-interactions: Global smooth transitions */
+  button, a, [role="button"], [tabindex] {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Micro-interactions: Button press effect */
+  button:active, [role="button"]:active {
+    transform: scale(0.98);
+  }
+
+  /* Micro-interactions: Link underline effect */
+  a {
+    text-decoration-skip-ink: auto;
+  }
+}
+
+/* Micro-interactions: Button hover scale */
+button:not(:disabled):hover {
+  transform: scale(1.02);
+}
+
+/* Micro-interactions: Card hover lift */
+[class*="Card"]:hover, .hover-lift:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Micro-interactions: Badge hover pulse */
+[class*="Badge"]:hover {
+  transform: scale(1.05);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Micro-interactions: Icon rotate on hover */
+.icon-rotate:hover svg {
+  transform: rotate(15deg);
+  transition: transform 0.3s ease;
+}
+
+/* Micro-interactions: Ripple effect */
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  height: 100px;
+  animation: ripple 0.6s ease-out;
+}
+
+/* Micro-interactions: Smooth color transitions */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
 .print-force-new-page {
@@ -76,37 +155,47 @@
 }
 
 @media print {
-  /* Print page setup */
+  /* Print page setup for professional resume */
   @page {
     size: A4;
-    margin: 0.75in;
+    margin: 0.5in 0.6in;
   }
-  
+
+  /* Remove all micro-interactions for print */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
   /* Optimize page breaks for better flow */
   .print-avoid-break {
     page-break-inside: avoid;
+    break-inside: avoid;
   }
-  
+
   /* Reduce excessive spacing in print */
   .print-compact {
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
   }
-  
+
   /* Allow more natural page breaks */
   .print-auto-break {
     page-break-inside: auto;
+    break-inside: auto;
   }
-  
+
   /* Ensure better spacing between sections */
   section {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
   }
-  
+
   /* Optimize grid layout for print */
   .print-grid-optimization {
     page-break-inside: auto;
   }
-  
+
   /* Hide sticky headers in print */
   .sticky-header {
     position: static !important;
@@ -114,83 +203,148 @@
     backdrop-filter: none !important;
     border: none !important;
     box-shadow: none !important;
+    margin-bottom: 0.5rem !important;
   }
-  
-  /* Print-specific optimizations */
+
+  /* Professional resume body formatting */
   body {
-    font-size: 12pt !important;
-    line-height: 1.5 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
     -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #000 !important;
+    background: white !important;
   }
-  
-  /* Better typography for print */
+
+  /* Professional resume typography */
   h1 {
-    font-size: 24pt !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 22pt !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 0 !important;
     font-weight: 700 !important;
+    color: #000 !important;
   }
-  
+
   h2 {
-    font-size: 16pt !important;
-    margin-bottom: 0.75rem !important;
-    margin-top: 1.25rem !important;
-    font-weight: 700 !important;
-  }
-  
-  h3 {
     font-size: 14pt !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    border-bottom: 1.5pt solid #333 !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
     margin-bottom: 0.25rem !important;
     font-weight: 600 !important;
+    color: #000 !important;
   }
-  
+
   h4 {
-    font-size: 12pt !important;
-    margin-bottom: 0.25rem !important;
+    font-size: 11pt !important;
+    margin-bottom: 0.15rem !important;
     font-weight: 500 !important;
+    color: #222 !important;
   }
-  
+
+  /* Compact header for resume */
+  .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
   /* Compact contact info for print */
   .print-contact-compact {
     display: flex !important;
     flex-direction: row !important;
-    gap: 1rem !important;
+    gap: 0.75rem !important;
     font-size: 10pt !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
   }
-  
-  /* Optimize cards for print */
+
+  /* Professional card styling for resume */
   .print-card-compact {
-    margin-bottom: 1rem !important;
-    padding: 0.75rem !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 0.5rem !important;
+    margin-bottom: 0.6rem !important;
+    padding: 0.5rem !important;
+    border: none !important;
+    border-left: 2pt solid #333 !important;
+    border-radius: 0 !important;
     background: white !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
   }
-  
-  /* Optimize badges for print */
+
+  /* Optimize badges for professional look */
   .print-badge {
-    font-size: 9pt !important;
-    padding: 0.125rem 0.25rem !important;
-    margin: 0.125rem !important;
+    font-size: 8.5pt !important;
+    padding: 0.1rem 0.3rem !important;
+    margin: 0.1rem !important;
+    border: 0.5pt solid #666 !important;
+    background: white !important;
+    color: #333 !important;
+    border-radius: 2pt !important;
   }
-  
-  /* Optimize projects grid for print */
+
+  /* Two-column layout for projects */
   .print-projects-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
   }
-  
-  /* Remove unnecessary padding in print */
+
+  /* Remove unnecessary padding */
   .print-no-padding {
     padding: 0 !important;
   }
-  
-  /* Clean print links */
+
+  /* Professional link formatting */
   a {
-    color: #333 !important;
+    color: #000 !important;
     text-decoration: none !important;
+  }
+
+  a[href^="http"]::after {
+    content: none !important;
+  }
+
+  /* Avatar styling for resume header */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure spacing is professional */
+  .space-y-12 {
+    gap: 0.75rem !important;
+  }
+
+  /* Compact main container */
+  main {
+    padding: 0 !important;
+  }
+
+  /* Hide shadows and decorative elements */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Professional bullet points if any */
+  ul, ol {
+    margin-left: 1.5em;
+  }
+
+  /* Page break optimization */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Widow and orphan control */
+  p {
+    orphans: 3;
+    widows: 3;
   }
 }
 
@@ -270,4 +424,72 @@ a {
 
 a:hover {
   color: hsl(var(--primary));
+}
+
+/* Scroll animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+/* Intersection Observer classes */
+.section-animate {
+  opacity: 0;
+}
+
+.section-animate.in-view {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Stagger animations for children */
+.stagger-animate > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-animate.in-view > * {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.stagger-animate.in-view > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-animate.in-view > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-animate.in-view > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-animate.in-view > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-animate.in-view > *:nth-child(5) {
+  animation-delay: 0.5s;
 }

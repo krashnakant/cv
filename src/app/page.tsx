@@ -10,6 +10,11 @@ import { GlobeIcon, MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { PrintButton } from "@/components/print-button";
+import { SectionNav } from "@/components/section-nav";
+import { MobileNav } from "@/components/mobile-nav";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -19,7 +24,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="container relative mx-auto scroll-my-12 p-6 print:p-8 md:p-20">
-      <section className="mx-auto w-full max-w-4xl space-y-12 bg-background print:space-y-6">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 print:hidden"
+      >
+        Skip to main content
+      </a>
+      <ScrollProgress />
+      <SectionNav />
+      <MobileNav />
+      <div className="fixed top-6 right-6 z-50 flex gap-2 print:hidden">
+        <PrintButton />
+        <ThemeToggle />
+      </div>
+      <section id="main-content" className="mx-auto w-full max-w-4xl space-y-12 bg-background print:space-y-6">
         <div className="flex items-start justify-between gap-8">
           <div className="flex-1 space-y-3">
             <h1 className="text-4xl font-bold tracking-tight text-foreground">{RESUME_DATA.name}</h1>
@@ -31,6 +49,7 @@ export default function Page() {
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <GlobeIcon className="h-3 w-3" />
                 {RESUME_DATA.location}
@@ -81,24 +100,24 @@ export default function Page() {
             <AvatarFallback className="text-xl font-semibold">{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <Section>
-          <StickyHeader id="about">
+        <Section id="about">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">About</h2>
           </StickyHeader>
           <p className="text-pretty text-base leading-relaxed text-foreground/80 max-w-3xl">
             {RESUME_DATA.summary}
           </p>
         </Section>
-        <Section>
-          <StickyHeader id="objective">
+        <Section id="objective">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Career Objective</h2>
           </StickyHeader>
           <p className="text-pretty text-base leading-relaxed text-foreground/80 max-w-3xl">
             {RESUME_DATA.careerObjective}
           </p>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="logistics">
+        <Section className="print-avoid-break" id="logistics">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Professional Information</h2>
           </StickyHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -120,8 +139,8 @@ export default function Page() {
             </div>
           </div>
         </Section>
-        <Section>
-          <StickyHeader id="work-experience">
+        <Section id="work-experience">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Work Experience</h2>
           </StickyHeader>
           <div className="space-y-4">
@@ -131,7 +150,7 @@ export default function Page() {
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between gap-x-4 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-2 font-semibold leading-none text-lg">
-                      <a className="hover:underline" href={work.link}>
+                      <a className="hover:underline" href={work.link} target="_blank" rel="noopener noreferrer">
                         {work.company}
                       </a>
 
@@ -164,8 +183,8 @@ export default function Page() {
           })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="education">
+        <Section className="print-avoid-break" id="education">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Education</h2>
           </StickyHeader>
           <div className="space-y-4">
@@ -190,8 +209,8 @@ export default function Page() {
           })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="skills">
+        <Section className="print-avoid-break" id="skills">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Skills</h2>
           </StickyHeader>
           <div className="flex flex-wrap gap-2">
@@ -200,8 +219,8 @@ export default function Page() {
             })}
           </div>
         </Section>
-        <Section className="print-avoid-break">
-          <StickyHeader id="languages">
+        <Section className="print-avoid-break" id="languages">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Languages</h2>
           </StickyHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -214,8 +233,8 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section className="print-auto-break scroll-mb-16">
-          <StickyHeader id="projects">
+        <Section className="print-auto-break scroll-mb-16" id="projects">
+          <StickyHeader>
             <h2 className="text-2xl font-bold tracking-tight">Projects</h2>
           </StickyHeader>
           <div className="-mx-3 grid grid-cols-1 gap-6 print:print-projects-grid md:grid-cols-2 lg:grid-cols-3">
