@@ -20,23 +20,22 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: [
-          'Inter',
+          'Outfit',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Arial',
           'sans-serif'
+        ],
+        serif: [
+          'Fraunces',
+          'Georgia',
+          'Cambria',
+          'serif'
         ],
         mono: [
           'JetBrains Mono',
           'SF Mono',
           'Monaco',
-          'Inconsolata',
-          'Roboto Mono',
-          'source-code-pro',
           'monospace'
         ],
       },

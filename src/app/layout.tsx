@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css";
@@ -60,19 +59,13 @@ export const metadata: Metadata = {
   },
 };
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <head>
        <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />

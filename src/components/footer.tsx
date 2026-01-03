@@ -15,12 +15,45 @@ export function Footer() {
 
   return (
     <footer className="mt-16 border-t bg-muted/30 print:hidden">
-      <div className="container mx-auto max-w-2xl px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      {/* Prominent CTA Section */}
+      <div className="bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-primary/20">
+        <div className="container mx-auto max-w-2xl px-4 py-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold font-serif mb-3 text-foreground">
+            Interested in Working Together?
+          </h2>
+          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+            I&apos;m currently open to new opportunities. Let&apos;s discuss how I can help your team succeed.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button
+              size="lg"
+              className="h-12 px-8 bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cta-shine"
+              asChild
+            >
+              <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                <MailIcon className="h-5 w-5 mr-2" />
+                Start a Conversation
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 px-8 font-semibold hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
+              onClick={handleDownloadCV}
+            >
+              <DownloadIcon className="h-5 w-5 mr-2" />
+              Download CV
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto max-w-2xl px-4 py-8">
         {/* Main Footer Content */}
         <div className="space-y-6">
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Get In Touch</h3>
+            <h3 className="text-lg font-semibold font-serif">Get In Touch</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {RESUME_DATA.contact.email && (
                 <a
@@ -44,7 +77,7 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Connect</h3>
+            <h3 className="text-lg font-semibold font-serif">Connect</h3>
             <div className="flex flex-wrap gap-2">
               {RESUME_DATA.contact.social.map((social) => (
                 <Button
@@ -70,7 +103,7 @@ export function Footer() {
 
           {/* Key Skills Summary */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Core Expertise</h3>
+            <h3 className="text-lg font-semibold font-serif">Core Expertise</h3>
             <div className="flex flex-wrap gap-1">
               {RESUME_DATA.skills.slice(0, 8).map((skill) => (
                 <Badge key={skill} variant="secondary" className="text-xs">
@@ -85,27 +118,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Actions</h3>
-            <div className="flex flex-wrap gap-2">
-              <Button onClick={handleDownloadCV} className="flex items-center gap-2">
-                <DownloadIcon className="h-4 w-4" />
-                Download CV
-              </Button>
-              {RESUME_DATA.personalWebsiteUrl && (
-                <Button variant="outline" asChild>
-                  <a 
-                    href={RESUME_DATA.personalWebsiteUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    Visit Portfolio
-                  </a>
-                </Button>
-              )}
-            </div>
-          </div>
         </div>
 
         {/* Footer Bottom */}
