@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { StickyHeader } from "@/components/ui/sticky-header";
-import { GlobeIcon, MailIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, QuoteIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -113,7 +113,36 @@ export default function Page() {
             {RESUME_DATA.careerObjective}
           </p>
         </Section>
-        <Section className="print-avoid-break animate-fade-up delay-600">
+
+        {/* Testimonials Section */}
+        <Section className="animate-fade-up delay-600 print:hidden">
+          <StickyHeader id="testimonials">
+            <h2 className="text-2xl font-bold tracking-tight font-serif">What People Say</h2>
+          </StickyHeader>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {RESUME_DATA.testimonials.map((testimonial, index) => (
+              <Card
+                key={index}
+                className="relative bg-card/50 backdrop-blur-sm border-l-4 border-l-primary/30 hover:border-l-primary hover:shadow-lg transition-all duration-300"
+              >
+                <CardContent className="pt-6">
+                  <QuoteIcon className="h-8 w-8 text-primary/20 absolute top-4 right-4" />
+                  <p className="text-sm leading-relaxed text-foreground/80 italic mb-4">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
+                  <div className="border-t pt-3">
+                    <p className="font-semibold text-sm">{testimonial.author}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {testimonial.relationship} at {testimonial.company}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        <Section className="print-avoid-break animate-fade-up delay-700">
           <StickyHeader id="logistics">
             <h2 className="text-2xl font-bold tracking-tight font-serif">Professional Information</h2>
           </StickyHeader>

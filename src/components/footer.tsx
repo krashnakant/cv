@@ -4,7 +4,8 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
-import { MailIcon, MapPinIcon, CalendarIcon, DownloadIcon } from "lucide-react";
+import { MailIcon, MapPinIcon, CalendarIcon, DownloadIcon, BookOpenIcon } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -87,9 +88,9 @@ export function Footer() {
                   className="h-8"
                   asChild
                 >
-                  <a 
-                    href={social.url} 
-                    target="_blank" 
+                  <a
+                    href={social.url}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
@@ -98,6 +99,17 @@ export function Footer() {
                   </a>
                 </Button>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8"
+                asChild
+              >
+                <Link href="/blog" className="flex items-center gap-2">
+                  <BookOpenIcon className="h-4 w-4" />
+                  Blog
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -126,10 +138,19 @@ export function Footer() {
             <div className="text-center sm:text-left">
               © {currentYear} {RESUME_DATA.name}. All rights reserved.
             </div>
-            <div className="flex items-center gap-4 text-xs">
+            <div className="flex items-center gap-4 text-xs flex-wrap justify-center sm:justify-end">
               <span>Built with Next.js & Tailwind CSS</span>
-              <span>•</span>
-              <span>Responsive & Print-Ready</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="flex items-center gap-1.5">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-medium">
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Fast
+                </span>
+                Performance Optimized
+              </span>
             </div>
           </div>
           

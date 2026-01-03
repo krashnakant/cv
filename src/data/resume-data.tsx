@@ -244,5 +244,25 @@ export const RESUME_DATA = {
       }
     }
   ],
-  references: "References and recommendation letters available upon request via email"
+  references: "References and recommendation letters available upon request via email",
+  testimonials: [
+    {
+      quote: "Krashna consistently delivered high-quality solutions and showed exceptional leadership in guiding the team through complex technical challenges.",
+      author: "Team Lead",
+      company: "Bauhaus",
+      relationship: "Direct Manager"
+    },
+    {
+      quote: "His deep understanding of cloud architecture and ability to mentor junior developers made him invaluable to our team's success.",
+      author: "Engineering Manager",
+      company: "Hse",
+      relationship: "Former Manager"
+    },
+    {
+      quote: "Krashna's technical expertise and collaborative approach helped us achieve 99.9% uptime on critical infrastructure.",
+      author: "DevOps Lead",
+      company: "Harman",
+      relationship: "Colleague"
+    }
+  ]
 } as const;

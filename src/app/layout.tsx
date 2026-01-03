@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { ClarityAnalytics } from "@/components/clarity-analytics";
 
 import "./globals.css";
 import React from "react";
@@ -28,10 +29,10 @@ export const metadata: Metadata = {
     siteName: "Krashna Kant Chaurasia - Resume",
     images: [
       {
-        url: "https://avatars.githubusercontent.com/u/26169918?v=4",
-        width: 460,
-        height: 460,
-        alt: "Krashna Kant Chaurasia - Senior Full Stack Developer",
+        url: "https://krashna.in/og",
+        width: 1200,
+        height: 630,
+        alt: "Krashna Kant Chaurasia - Senior Full Stack Developer & Tech Lead",
       },
     ],
   },
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
     description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP.",
-    images: ["https://avatars.githubusercontent.com/u/26169918?v=4"],
+    images: ["https://krashna.in/og"],
   },
   robots: {
     index: true,
@@ -121,6 +122,7 @@ export default function RootLayout({
       </head>
       <body>{children}</body>
       <Analytics />
+      <ClarityAnalytics />
     </html>
   );
 }
