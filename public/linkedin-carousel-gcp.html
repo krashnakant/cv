@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Carousel - GCP Cloud Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f3f4f6;
+      padding: 40px;
+    }
+
+    .instructions {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 24px;
+      background: #fef3c7;
+      border-radius: 12px;
+      border: 2px solid #f59e0b;
+    }
+
+    .instructions h2 {
+      color: #92400e;
+      margin-bottom: 12px;
+    }
+
+    .instructions ol {
+      color: #78350f;
+      margin-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+    }
+
+    .carousel-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .slide {
+      width: 540px;
+      height: 675px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 12px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      page-break-after: always;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227);
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 600;
+    }
+
+    /* Slide 1 - Hook */
+    .slide-1 .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 162, 39, 0.2);
+      color: #f4d03f;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .slide-1 h1 {
+      color: #ffffff;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 30px;
+    }
+
+    .slide-1 h1 span {
+      color: #f4d03f;
+    }
+
+    .slide-1 .subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .slide-1 .author {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .slide-1 .author img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 3px solid #c9a227;
+    }
+
+    .slide-1 .author-info h3 {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .slide-1 .author-info p {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+    }
+
+    /* Slide 2+ - Content slides */
+    .content-slide h2 {
+      color: #f4d03f;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 36px;
+    }
+
+    .content-slide .point {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .content-slide .point-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(201, 162, 39, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f4d03f;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .content-slide .point-text h3 {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .content-slide .point-text p {
+      color: rgba(255,255,255,0.7);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Stats slide */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-card .number {
+      color: #f4d03f;
+      font-size: 42px;
+      font-weight: 800;
+    }
+
+    .stat-card .label {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* CTA Slide */
+    .cta-slide {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cta-slide h2 {
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .cta-slide p {
+      color: rgba(255,255,255,0.7);
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .cta-slide .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(90deg, #c9a227, #f4d03f);
+      color: #1a1a2e;
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+
+    .cta-slide .website {
+      color: #f4d03f;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .cta-slide .engage {
+      margin-top: 40px;
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+      .instructions {
+        display: none;
+      }
+      .carousel-container {
+        gap: 0;
+      }
+      .slide {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="instructions">
+    <h2>How to Export as PDF for LinkedIn</h2>
+    <ol>
+      <li>Press <strong>Cmd+P</strong> (Mac) or <strong>Ctrl+P</strong> (Windows)</li>
+      <li>Select <strong>"Save as PDF"</strong> as destination</li>
+      <li>Set paper size to <strong>Custom: 540 x 675 px</strong> or use "Fit to page"</li>
+      <li>Save and upload to LinkedIn as a document post</li>
+    </ol>
+  </div>
+
+  <div class="carousel-container">
+    <!-- Slide 1: Hook -->
+    <div class="slide slide-1">
+      <div class="badge">
+        <span>🎯</span> Just Certified
+      </div>
+      <h1>I Passed the <span>GCP Professional Cloud Architect</span> Exam</h1>
+      <p class="subtitle">Here's what I wish I knew before starting my 3-month journey...</p>
+      <div class="author">
+        <img src="https://avatars.githubusercontent.com/u/26169918?v=4" alt="Krashna">
+        <div class="author-info">
+          <h3>Krashna Kant Chaurasia</h3>
+          <p>Senior Full Stack Developer & Tech Lead</p>
+        </div>
+      </div>
+      <div class="slide-number">1/7</div>
+    </div>
+
+    <!-- Slide 2: Why this cert -->
+    <div class="slide content-slide">
+      <h2>Why This Certification?</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">€120K+</div>
+          <div class="label">Senior Salary (Germany)</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">25%</div>
+          <div class="label">Job Growth 2025</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">60%</div>
+          <div class="label">Companies Need Cloud Skills</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">20-30%</div>
+          <div class="label">Salary Boost with Cert</div>
+        </div>
+      </div>
+      <div class="slide-number">2/7</div>
+    </div>
+
+    <!-- Slide 3: What worked -->
+    <div class="slide content-slide">
+      <h2>What Actually Worked ✅</h2>
+      <div class="point">
+        <div class="point-icon">1</div>
+        <div class="point-text">
+          <h3>Real Project Experience</h3>
+          <p>Building on GCP daily taught me more than 100 practice exams ever could</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">2</div>
+        <div class="point-text">
+          <h3>Focus on Case Studies</h3>
+          <p>The exam tests decision-making, not memorization. Understand WHY, not just WHAT</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">3</div>
+        <div class="point-text">
+          <h3>Hands-on Labs</h3>
+          <p>Qwiklabs and Cloud Skills Boost were game-changers for practical understanding</p>
+        </div>
+      </div>
+      <div class="slide-number">3/7</div>
+    </div>
+
+    <!-- Slide 4: What didn't work -->
+    <div class="slide content-slide">
+      <h2>What Didn't Work ❌</h2>
+      <div class="point">
+        <div class="point-icon">✗</div>
+        <div class="point-text">
+          <h3>Cramming Documentation</h3>
+          <p>GCP docs are endless. Focus on architecture patterns instead</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">✗</div>
+        <div class="point-text">
+          <h3>Ignoring Networking</h3>
+          <p>VPCs, Cloud Interconnect, and hybrid connectivity were harder than expected</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">✗</div>
+        <div class="point-text">
+          <h3>Skipping Business Requirements</h3>
+          <p>Many questions are about cost optimization and compliance, not just tech</p>
+        </div>
+      </div>
+      <div class="slide-number">4/7</div>
+    </div>
+
+    <!-- Slide 5: Key topics -->
+    <div class="slide content-slide">
+      <h2>Topics to Master 🎯</h2>
+      <div class="point">
+        <div class="point-icon">🔒</div>
+        <div class="point-text">
+          <h3>IAM & Security</h3>
+          <p>Service accounts, least privilege, VPC Service Controls</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">🌐</div>
+        <div class="point-text">
+          <h3>Networking</h3>
+          <p>VPCs, Cloud Interconnect, Load Balancing, CDN</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">📊</div>
+        <div class="point-text">
+          <h3>Data Services</h3>
+          <p>BigQuery, Dataflow, Pub/Sub, Cloud Storage classes</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">💰</div>
+        <div class="point-text">
+          <h3>Cost Optimization</h3>
+          <p>Committed use discounts, preemptible VMs, right-sizing</p>
+        </div>
+      </div>
+      <div class="slide-number">5/7</div>
+    </div>
+
+    <!-- Slide 6: My study plan -->
+    <div class="slide content-slide">
+      <h2>My 3-Month Study Plan 📅</h2>
+      <div class="point">
+        <div class="point-icon">1</div>
+        <div class="point-text">
+          <h3>Month 1: Foundations</h3>
+          <p>Google's Cloud Architect learning path + hands-on labs</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">2</div>
+        <div class="point-text">
+          <h3>Month 2: Deep Dives</h3>
+          <p>Case studies, networking, security deep dives</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">3</div>
+        <div class="point-text">
+          <h3>Month 3: Practice</h3>
+          <p>Practice exams, review weak areas, real-world scenarios</p>
+        </div>
+      </div>
+      <div class="slide-number">6/7</div>
+    </div>
+
+    <!-- Slide 7: CTA -->
+    <div class="slide cta-slide">
+      <h2>Want My Full Study Guide?</h2>
+      <p>Resources, tips, and architecture patterns that helped me pass</p>
+      <div class="cta-button">
+        📚 Free Guide
+      </div>
+      <div class="website">krashna.in/blog/gcp-cloud-architect-certification-guide</div>
+      <p class="engage">💬 What certification are you working on?<br>Drop a comment below!</p>
+      <div class="slide-number">7/7</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "gcp-cloud-architect-certification-guide",
+    title: "How I Passed the GCP Professional Cloud Architect Exam in 2025",
+    description: "Complete study guide with resources, tips, and a 3-month preparation plan for passing the Google Cloud Professional Cloud Architect certification.",
+    date: "2025-01-03",
+    readTime: "12 min read",
+    tags: ["GCP", "Certification", "Career", "Cloud Architecture"],
+    published: true
+  },
+  {
     slug: "scaling-firestore-100k-users",
     title: "Scaling Firestore for 100K+ Monthly Users",
     description: "Lessons learned architecting a high-traffic configurator platform on GCP with Firestore, including indexing strategies and cost optimization.",
@@ -17,15 +26,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "8 min read",
     tags: ["GCP", "Firestore", "Architecture", "Performance"],
     published: false // Set to true when article is written
-  },
-  {
-    slug: "gcp-cloud-architect-certification-guide",
-    title: "How I Passed the GCP Professional Cloud Architect Exam",
-    description: "Study strategies, resources, and real-world experience that helped me pass the Google Cloud Professional Cloud Architect certification.",
-    date: "2025-01-10",
-    readTime: "6 min read",
-    tags: ["GCP", "Certification", "Career"],
-    published: false
   },
   {
     slug: "leading-cross-functional-teams",
