@@ -11,7 +11,7 @@ export const RESUME_DATA = {
   careerObjective:
     "Targeting technical leadership roles where cloud-native architecture, product delivery, and team mentorship all matter.",
   summary:
-    "Accomplished Senior Full Stack Developer and Interim Tech Lead with 12+ years of experience architecting and delivering enterprise-scale applications across Europe. GCP Professional Cloud Architect certified (2025). Proven track record of leading cross-functional teams, building cloud-native infrastructure, and driving digital transformation. Deep expertise in TypeScript, React, Node.js, Java and cloud DevOps, with a strong focus on scalability, reliability and measurable business impact.",
+    "GCP Professional Cloud Architect certified (2025). Proven track record of leading cross-functional teams, building cloud-native infrastructure, and driving digital transformation. Deep expertise in TypeScript, React, Node.js, Java and cloud DevOps, with a strong focus on scalability, reliability and measurable business impact.",
   avatarUrl: "https://avatars.githubusercontent.com/u/26169918?v=4",
   contact: {
     email: "krashna.chaurasia@yahoo.com",
@@ -73,9 +73,9 @@ export const RESUME_DATA = {
       title: "Senior Full Stack Developer -> Interim Tech Lead",
       start: "2021",
       end: "Present",
-      techStack: ["GCP", "NestJS", "Firestore", "GitHub Actions", "React", "Terraform"],
+      techStack: ["GCP", "NestJS", "Firestore", "GitHub Actions", "React", "Terraform", "Serverless", "Microservices"],
       description:
-        "Led a cross-functional team of 4 developers architecting and delivering an enterprise product configurator platform serving 100K+ monthly requests. Built GCP cloud infrastructure from scratch using Terraform and Firestore, achieving 99.9% uptime and reducing deployment time by 70%. Implemented end-to-end CI/CD pipelines and DevOps practices via GitHub Actions, increasing development velocity by 40% and enabling zero-downtime releases. Collaborated with UX, product, and external configurator vendors to deliver seamless integrations and a consistent user experience across platforms. Tech stack: GCP, NestJS, Firestore, GitHub Actions, React, External Configurator Integration."
+        "Led a cross-functional team of 4 developers architecting and delivering an enterprise product configurator platform serving 100K+ monthly requests. Built GCP cloud infrastructure from scratch using Terraform and Firestore, achieving 99.9% uptime and reducing deployment time by 70%. Implemented end-to-end CI/CD pipelines and DevOps practices via GitHub Actions, increasing development velocity by 40% and enabling zero-downtime releases. Collaborated with UX, product, and external configurator vendors to deliver seamless integrations and a consistent user experience across platforms."
     },
     {
       company: "HSE",
@@ -86,7 +86,7 @@ export const RESUME_DATA = {
       end: "2021",
       techStack: ["Kotlin", "Spring Boot", "React", "AWS", "Microservices", "Docker"],
       description:
-        "Built and maintained an e-commerce platform handling 10K+ daily transactions with 99.95% uptime across Germany, Austria and Switzerland. Designed event-driven microservices architecture enabling real-time communication between Docker-containerised services. Led API design and development consumed by product presentation and back-office teams, and optimized checkout flow reducing cart abandonment by 25%. Worked closely with product managers and designers in agile sprints to prioritize features for maximum business impact. Tech stack: Kotlin, Spring Boot, React, AWS, Microservices, Docker."
+        "Built and maintained an e-commerce platform handling 10K+ daily transactions with 99.95% uptime across Germany, Austria and Switzerland. Designed event-driven microservices architecture enabling real-time communication between Docker-containerized services. Led API design and development consumed by product presentation and back-office teams, and optimized checkout flow reducing cart abandonment by 25%. Worked closely with product managers and designers in agile sprints to prioritize features for maximum business impact."
     },
     {
       company: "Harman International",
@@ -218,7 +218,7 @@ export const RESUME_DATA = {
     {
       quote: "His deep understanding of cloud architecture and ability to mentor junior developers made him invaluable to our team's success.",
       author: "Engineering Manager",
-      company: "Hse",
+      company: "HSE",
       relationship: "Former Manager"
     },
     {

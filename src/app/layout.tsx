@@ -15,7 +15,7 @@ export const viewport:Viewport  = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://krashna.in'),
   title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-  description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
+  description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
   keywords: "Full Stack Developer, Tech Lead, TypeScript, React, Node.js, Java, AWS, GCP, DevOps, Microservices, Team Leadership, Software Architecture",
   authors: [{ name: "Krashna Kant Chaurasia" }],
   creator: "Krashna Kant Chaurasia",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://krashna.in",
     title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-    description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
+    description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
     siteName: "Krashna Kant Chaurasia - Resume",
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-    description: "Senior Full Stack Developer & Tech Lead with 10+ years experience in TypeScript, React, Node.js, Java, AWS, GCP.",
+    description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP.",
     images: ["https://krashna.in/og"],
   },
   robots: {
@@ -101,7 +101,7 @@ export default function RootLayout({
               ],
               "knowsAbout": [
                 "TypeScript", "JavaScript", "React", "Node.js", "Java", "Spring Boot",
-                "AWS", "GCP", "Docker", "Kubernetes", "Terraform", "Microservices",
+                "AWS", "GCP", "Docker", "Terraform", "Microservices",
                 "DevOps", "Team Leadership", "Software Architecture"
               ],
               "hasCredential": [

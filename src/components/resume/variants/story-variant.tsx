@@ -36,7 +36,7 @@ export function StoryVariant() {
           <div>
             <p className="text-xs uppercase tracking-[0.32em] text-amber-700">{RESUME_DATA.name}</p>
             <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
-              Senior full stack engineering, cloud delivery, and technical leadership presented as one clean narrative.
+              Senior Full Stack engineering, cloud delivery, and technical leadership presented as one clean narrative.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -96,14 +96,17 @@ export function StoryVariant() {
 
         <QuickMetricStrip className="[&_div]:bg-white/80 [&_div]:shadow-[0_24px_70px_rgba(120,113,108,0.08)]" />
 
-        <section className="grid gap-4 lg:grid-cols-3">
-          {narrativePillars.map((pillar) => (
-            <article key={pillar.title} className="rounded-[1.75rem] border border-stone-300/60 bg-white/80 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.08)]">
-              <p className="text-xs uppercase tracking-[0.26em] text-amber-700">Career Arc</p>
-              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-stone-900">{pillar.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-stone-700">{pillar.body}</p>
-            </article>
-          ))}
+        <section className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.26em] text-amber-700">Career Arc</p>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {narrativePillars.map((pillar, i) => (
+              <article key={pillar.title} className="rounded-[1.75rem] border border-stone-300/60 bg-white/80 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.08)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-400">Phase {i + 1}</p>
+                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-stone-900">{pillar.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-stone-700">{pillar.body}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section id="impact" className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
@@ -130,7 +133,7 @@ export function StoryVariant() {
         <section id="experience" className="grid gap-8 lg:grid-cols-[11rem_minmax(0,1fr)]">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-amber-700">Timeline</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">A path from implementation depth to wider technical ownership.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Representative work pulled directly from the career record.</h2>
           </div>
 
           <div className="space-y-8 border-l border-stone-300 pl-6">
@@ -166,7 +169,7 @@ export function StoryVariant() {
         <section id="projects" className="space-y-6">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.28em] text-amber-700">Selected Projects</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Representative work pulled directly from the resume record.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Key deliverables across products, platforms, and infrastructure.</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {RESUME_DATA.projects.map((project) => (
@@ -232,7 +235,7 @@ export function StoryVariant() {
 
           <div id="proof" className="rounded-[2rem] bg-stone-900 p-7 text-stone-50 shadow-[0_24px_80px_rgba(41,37,36,0.22)]">
             <p className="text-xs uppercase tracking-[0.28em] text-amber-300">External Signal</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The story is backed by named LinkedIn recommendations from people who worked directly with you.</h2>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The story is backed by named LinkedIn recommendations from people who worked directly with me.</h2>
 
             <div className="mt-6 rounded-[1.5rem] border border-stone-700 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.24em] text-stone-400">LinkedIn</p>
