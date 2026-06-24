@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { ClarityAnalytics } from "@/components/clarity-analytics";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
 import "./globals.css";
 import React from "react";
@@ -70,7 +71,7 @@ export default function RootLayout({
       <head>
        <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />
-        <meta name="theme-color" content="#b8a267" />
+        <meta name="theme-color" content="#1d4ed8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Krashna Kant CV" />
@@ -120,7 +121,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
       <Analytics />
       <ClarityAnalytics />
     </html>

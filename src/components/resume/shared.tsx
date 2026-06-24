@@ -125,7 +125,7 @@ export function SharedClosingPanel({ tone = "light" }: { tone?: "light" | "dark"
             ].join(" ")}
           >
             <MailIcon className="h-4 w-4" />
-            {RESUME_DATA.contact.email}
+            Email me
           </a>
           <a
             href={linkedInUrl}

@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap');
 @import "tailwindcss";
 
 
 @layer base {
   :root {
-    /* Refined warm palette - Premium Tech Executive */
-    --background: 30 20% 98%;
-    --foreground: 220 20% 12%;
+    /* The Engineer's Editorial — ink on warm paper, deep cobalt accent */
+    --background: 40 20% 98%;
+    --foreground: 220 16% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 12%;
+    --card-foreground: 220 16% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 12%;
-    /* Warm amber/gold accent - conveys premium value */
-    --primary: 38 92% 50%;
-    --primary-foreground: 220 20% 8%;
-    --secondary: 30 15% 95%;
-    --secondary-foreground: 220 20% 20%;
-    --muted: 30 10% 94%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 38 50% 95%;
-    --accent-foreground: 220 20% 12%;
+    --popover-foreground: 220 16% 11%;
+    /* Deep cobalt — used sparingly, functional not decorative */
+    --primary: 222 85% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 15% 95%;
+    --secondary-foreground: 220 16% 20%;
+    --muted: 40 12% 94%;
+    --muted-foreground: 220 8% 42%;
+    --accent: 222 60% 96%;
+    --accent-foreground: 220 16% 11%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 15% 88%;
-    --input: 30 15% 88%;
-    --ring: 38 92% 50%;
-    --radius: 0.5rem;
+    --border: 40 14% 88%;
+    --input: 40 14% 88%;
+    --ring: 222 85% 52%;
+    --radius: 0.375rem;
 
     /* Animation timing */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -33,25 +33,25 @@
   }
 
   .dark {
-    --background: 220 25% 6%;
-    --foreground: 30 15% 92%;
-    --card: 220 20% 10%;
-    --card-foreground: 30 15% 92%;
-    --popover: 220 20% 10%;
-    --popover-foreground: 30 15% 92%;
-    --primary: 38 92% 55%;
-    --primary-foreground: 220 25% 6%;
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 30 15% 90%;
-    --muted: 220 15% 18%;
-    --muted-foreground: 30 10% 60%;
-    --accent: 220 15% 18%;
-    --accent-foreground: 30 15% 92%;
+    --background: 220 18% 7%;
+    --foreground: 40 15% 92%;
+    --card: 220 16% 10%;
+    --card-foreground: 40 15% 92%;
+    --popover: 220 16% 10%;
+    --popover-foreground: 40 15% 92%;
+    --primary: 222 88% 62%;
+    --primary-foreground: 220 18% 7%;
+    --secondary: 220 14% 15%;
+    --secondary-foreground: 40 15% 90%;
+    --muted: 220 14% 16%;
+    --muted-foreground: 40 8% 60%;
+    --accent: 220 14% 18%;
+    --accent-foreground: 40 15% 92%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 30 15% 92%;
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 38 92% 55%;
+    --destructive-foreground: 40 15% 92%;
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 222 88% 62%;
   }
 }
 
@@ -70,22 +70,34 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Outfit', system-ui, sans-serif;
-    /* Subtle noise texture for depth */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-blend-mode: soft-light;
-    background-size: 200px;
+    font-family: 'Geist', system-ui, sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  /* Distinctive heading typography */
+  /* Structural type is Geist; hierarchy from weight + size, not extra fonts */
   h1, h2, h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-optical-sizing: auto;
+    font-family: 'Geist', system-ui, sans-serif;
     letter-spacing: -0.02em;
+  }
+
+  /* The one human moment — used exactly once (personal statement) */
+  .font-accent {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+  }
+
+  /* Engineer texture — section markers, metric labels, timestamps */
+  .font-mono-label {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+  }
+
+  /* Timeline dot lights to cobalt as it reaches center (set by GSAP) */
+  [data-timeline-dot].is-active {
+    background-color: hsl(222 85% 52%);
   }
 }
 
