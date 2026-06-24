@@ -61,7 +61,7 @@ export function StoryVariant() {
           </div>
         </header>
 
-        <section data-reveal className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
+        <section data-hero className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <ResumeIntro
             eyebrow="Profile"
             title="Senior Full Stack Developer & Interim Tech Lead, shaped by delivery across products, platforms, and cloud systems."

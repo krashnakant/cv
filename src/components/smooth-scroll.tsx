@@ -4,9 +4,10 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import Lenis from "lenis";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
 /**
  * Single GSAP/Lenis provider for the whole site. Drives:
@@ -50,6 +51,41 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 85%", once: true },
+        });
+      });
+
+      // Hero load sequence — masked SplitText line reveal on the headline, then
+      // a gentle fade-up on the rest. Runs after fonts load so lines split at the
+      // right break points. The hero is marked [data-hero] (not [data-reveal]).
+      document.fonts.ready.then(() => {
+        const title = document.querySelector<HTMLElement>('[data-variant="intro-title"]');
+        if (title && !title.dataset.split) {
+          title.dataset.split = "1";
+          const split = SplitText.create(title, { type: "lines", mask: "lines" });
+          gsap.from(split.lines, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.12 });
+        }
+        gsap.from(
+          '[data-hero] [data-variant="intro-eyebrow"], [data-hero] [data-variant="intro-summary"], [data-hero] [data-variant="intro-body"], [data-hero] [data-variant="intro-actions"], [data-hero] aside',
+          { opacity: 0, y: 18, duration: 0.6, ease: "power2.out", stagger: 0.08, delay: 0.15 },
+        );
+      });
+
+      // Count-up metrics — the strip ticks from 0 when scrolled into view.
+      gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
+        const m = (el.getAttribute("data-count") || "").match(/^(\D*)(\d[\d,]*)(.*)$/);
+        if (!m) return;
+        const [, prefix, digits, suffix] = m;
+        const target = parseInt(digits.replace(/,/g, ""), 10);
+        const counter = { v: 0 };
+        el.textContent = `${prefix}0${suffix}`;
+        gsap.to(counter, {
+          v: target,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          onUpdate: () => {
+            el.textContent = `${prefix}${Math.round(counter.v)}${suffix}`;
+          },
         });
       });
 

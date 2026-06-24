@@ -65,7 +65,7 @@ export function QuickMetricStrip({ className = "" }: { className?: string }) {
           key={metric.label}
           className="rounded-lg border border-[hsl(var(--foreground)_/_0.1)] bg-[hsl(var(--background)_/_0.78)] p-5"
         >
-          <p className="text-3xl font-semibold tracking-[-0.05em] text-[hsl(var(--foreground))]">{metric.value}</p>
+          <p data-count={metric.value} className="text-3xl font-semibold tracking-[-0.05em] tabular-nums text-[hsl(var(--foreground))]">{metric.value}</p>
           <p className="mt-2 text-sm leading-6 text-[hsl(var(--foreground)_/_0.66)]">{metric.label}</p>
         </div>
       ))}
