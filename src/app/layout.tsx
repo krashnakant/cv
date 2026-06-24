@@ -1,5 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
 import { ClarityAnalytics } from "@/components/clarity-analytics";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
@@ -67,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${fraunces.variable}`}>
       <head>
        <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />
