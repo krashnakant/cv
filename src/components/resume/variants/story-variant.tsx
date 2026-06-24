@@ -32,7 +32,7 @@ export function StoryVariant() {
       <div className="absolute inset-x-0 top-0 h-[32rem] bg-[linear-gradient(180deg,rgba(37,99,235,0.05),transparent)]" />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(120,113,108,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(120,113,108,0.08)_1px,transparent_1px)] [background-size:36px_36px]" />
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 pb-20 pt-12 sm:px-6 lg:px-8">
-        <header data-reveal className="flex flex-col gap-6 rounded-[2rem] border border-stone-300/60 bg-white/80 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.08)] sm:flex-row sm:items-center sm:justify-between">
+        <header data-reveal className="flex flex-col gap-6 rounded-lg border border-stone-300/60 bg-white/80 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-mono-label text-xs uppercase tracking-[0.32em] text-blue-700">{RESUME_DATA.name}</p>
             <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
@@ -70,7 +70,7 @@ export function StoryVariant() {
           />
 
           <aside className="space-y-4 lg:pt-6">
-            <div className="rounded-[2rem] bg-stone-900 p-6 text-stone-50 shadow-[0_24px_80px_rgba(41,37,36,0.22)]">
+            <div className="rounded-lg bg-stone-900 p-6 text-stone-50 shadow-xl">
               <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-300">At A Glance</p>
               <p className="mt-3 text-lg font-semibold">{RESUME_DATA.location}</p>
               <div className="mt-4 space-y-2 text-sm text-stone-300">
@@ -78,7 +78,7 @@ export function StoryVariant() {
                 <p>{RESUME_DATA.contact.availability}</p>
               </div>
             </div>
-            <div className="rounded-[2rem] border border-stone-300/60 bg-white/85 p-5 shadow-[0_18px_50px_rgba(120,113,108,0.08)]">
+            <div className="rounded-lg border border-stone-300/60 bg-white/85 p-5">
               <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-700">Recruiter Read</p>
               <div className="mt-4 space-y-3">
                 {recruiterHighlights.map((highlight) => (
@@ -92,13 +92,13 @@ export function StoryVariant() {
           </aside>
         </section>
 
-        <QuickMetricStrip className="[&_div]:bg-white/80 [&_div]:shadow-[0_24px_70px_rgba(120,113,108,0.08)]" />
+        <QuickMetricStrip className="[&_div]:bg-white/80" />
 
         <section data-reveal className="space-y-4">
           <p className="font-mono-label text-xs uppercase tracking-[0.26em] text-blue-700">Career Arc</p>
           <div className="grid gap-4 lg:grid-cols-3">
             {narrativePillars.map((pillar, i) => (
-              <article key={pillar.title} className="rounded-[1.75rem] border border-stone-300/60 bg-white/80 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.08)]">
+              <article key={pillar.title} className="rounded-lg border border-stone-300/60 bg-white/80 p-6">
                 <p className="font-mono-label text-xs font-semibold uppercase tracking-[0.18em] text-stone-400">Phase {i + 1}</p>
                 <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-stone-900">{pillar.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-stone-700">{pillar.body}</p>
@@ -108,7 +108,7 @@ export function StoryVariant() {
         </section>
 
         <section data-reveal id="impact" className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
-          <div className="rounded-[2rem] bg-stone-900 p-8 text-stone-50 shadow-[0_32px_100px_rgba(41,37,36,0.22)]">
+          <div className="rounded-lg bg-stone-900 p-8 text-stone-50 shadow-xl">
             <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-300">Profile</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em]">
               Architecting enterprise-scale products with measurable business impact.
@@ -116,7 +116,7 @@ export function StoryVariant() {
             <p className="mt-5 text-base leading-8 text-stone-300">{RESUME_DATA.summary}</p>
           </div>
 
-          <div className="rounded-[2rem] border border-stone-300/50 bg-white/70 p-8">
+          <div className="rounded-lg border border-stone-300/50 bg-white/70 p-8">
             <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-700">Current Direction</p>
             <p className="mt-5 text-lg leading-8 text-stone-700">{RESUME_DATA.careerObjective}</p>
             <div className="mt-6 border-t border-stone-300/60 pt-6">
@@ -139,7 +139,7 @@ export function StoryVariant() {
 
           <div className="space-y-8 border-l border-stone-300 pl-6">
             {RESUME_DATA.work.map((work) => (
-              <article data-reveal key={`${work.company}-${work.start}`} className="relative rounded-[1.75rem] border border-stone-300/55 bg-white/72 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.07)]">
+              <article data-reveal key={`${work.company}-${work.start}`} className="relative rounded-lg border border-stone-300/55 bg-white/72 p-6">
                 <span data-timeline-dot className="absolute -left-[2.05rem] top-3 h-4 w-4 rounded-full border-4 border-[#f5f1ea] bg-stone-300 transition-colors duration-300" />
                 <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-stone-500">{work.start} - {work.end}</p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -174,7 +174,7 @@ export function StoryVariant() {
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {RESUME_DATA.projects.map((project) => (
-              <article key={project.title + project.description} className="rounded-[1.75rem] border border-stone-300/60 bg-white/80 p-6 shadow-[0_18px_50px_rgba(120,113,108,0.07)]">
+              <article key={project.title + project.description} className="rounded-lg border border-stone-300/60 bg-white/80 p-6">
                 <h3 className="text-2xl font-semibold tracking-[-0.04em]">{project.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-stone-700">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -191,7 +191,7 @@ export function StoryVariant() {
 
         <section data-reveal className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
-            <div id="skills" className="rounded-[2rem] border border-stone-300/60 bg-white/80 p-7 shadow-[0_18px_50px_rgba(120,113,108,0.07)]">
+            <div id="skills" className="rounded-lg border border-stone-300/60 bg-white/80 p-7">
               <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-700">Skill Map</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {RESUME_DATA.skills.map((skill) => (
@@ -203,7 +203,7 @@ export function StoryVariant() {
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-[2rem] border border-stone-300/60 bg-white/80 p-7 shadow-[0_18px_50px_rgba(120,113,108,0.07)]">
+              <div className="rounded-lg border border-stone-300/60 bg-white/80 p-7">
                 <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-700">Certifications</p>
                 <div className="mt-5 space-y-4">
                   {RESUME_DATA.certifications.map((certification) => (
@@ -215,7 +215,7 @@ export function StoryVariant() {
                 </div>
               </div>
 
-              <div className="rounded-[2rem] border border-stone-300/60 bg-white/80 p-7 shadow-[0_18px_50px_rgba(120,113,108,0.07)]">
+              <div className="rounded-lg border border-stone-300/60 bg-white/80 p-7">
                 <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-700">Education & Interests</p>
                 <div className="mt-5 space-y-5">
                   {RESUME_DATA.education.map((education) => (
@@ -234,11 +234,11 @@ export function StoryVariant() {
             </div>
           </div>
 
-          <div id="proof" className="rounded-[2rem] bg-stone-900 p-7 text-stone-50 shadow-[0_24px_80px_rgba(41,37,36,0.22)]">
+          <div id="proof" className="rounded-lg bg-stone-900 p-7 text-stone-50 shadow-xl">
             <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-300">External Signal</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The story is backed by named LinkedIn recommendations from people who worked directly with me.</h2>
 
-            <div className="mt-6 rounded-[1.5rem] border border-stone-700 bg-white/5 p-5">
+            <div className="mt-6 rounded-md border border-stone-700 bg-white/5 p-5">
               <p className="font-mono-label text-xs uppercase tracking-[0.24em] text-stone-400">LinkedIn</p>
               <p className="mt-3 text-base leading-7 text-stone-100">
                 Public profile for role history, certifications, and direct recommendations.
@@ -255,7 +255,7 @@ export function StoryVariant() {
 
             <div className="mt-6 space-y-5">
               {RESUME_DATA.linkedinRecommendations.map((recommendation) => (
-                <article key={`${recommendation.author}-${recommendation.date}`} className="rounded-[1.5rem] border border-stone-700 bg-white/5 p-5">
+                <article key={`${recommendation.author}-${recommendation.date}`} className="rounded-md border border-stone-700 bg-white/5 p-5">
                   <div className="flex flex-col gap-2 border-b border-stone-700 pb-4">
                     <p className="text-lg font-semibold text-stone-50">{recommendation.author}</p>
                     <p className="text-sm text-stone-300">{recommendation.role}</p>

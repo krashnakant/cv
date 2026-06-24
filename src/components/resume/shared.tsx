@@ -63,7 +63,7 @@ export function QuickMetricStrip({ className = "" }: { className?: string }) {
       {QUICK_METRICS.map((metric) => (
         <div
           key={metric.label}
-          className="rounded-[1.75rem] border border-[hsl(var(--foreground)_/_0.1)] bg-[hsl(var(--background)_/_0.78)] p-5 shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
+          className="rounded-lg border border-[hsl(var(--foreground)_/_0.1)] bg-[hsl(var(--background)_/_0.78)] p-5"
         >
           <p className="text-3xl font-semibold tracking-[-0.05em] text-[hsl(var(--foreground))]">{metric.value}</p>
           <p className="mt-2 text-sm leading-6 text-[hsl(var(--foreground)_/_0.66)]">{metric.label}</p>
@@ -97,7 +97,7 @@ export function SharedClosingPanel({ tone = "light" }: { tone?: "light" | "dark"
     <section
       id="contact"
       className={[
-        "rounded-[2rem] border p-8 shadow-[0_30px_90px_rgba(15,23,42,0.08)]",
+        "rounded-lg border p-8",
         isDark
           ? "border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(34,211,238,0.08))]"
           : "border-[hsl(var(--foreground)_/_0.1)] bg-[linear-gradient(135deg,rgba(255,255,255,0.76),rgba(250,217,122,0.18))]"
