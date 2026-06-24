@@ -247,7 +247,7 @@ export function StoryVariant() {
                 href={linkedInUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-flex items-center rounded-full border border-stone-600 px-4 py-2 text-sm font-medium text-stone-100 transition hover:border-blue-300 hover:text-white"
+                className="mt-4 inline-flex min-h-11 items-center rounded-full border border-stone-600 px-4 py-2 text-sm font-medium text-stone-100 transition hover:border-blue-300 hover:text-white"
               >
                 View LinkedIn profile
               </a>

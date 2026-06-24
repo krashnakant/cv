@@ -80,7 +80,7 @@ export function SectionJumpLinks({ className = "" }: { className?: string }) {
         <a
           key={link.id}
           href={`#${link.id}`}
-          className="rounded-full border border-[hsl(var(--foreground)_/_0.1)] px-4 py-2 text-sm text-[hsl(var(--foreground)_/_0.72)] transition hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--foreground))]"
+          className="inline-flex min-h-11 items-center rounded-full border border-[hsl(var(--foreground)_/_0.1)] px-4 py-2 text-sm text-[hsl(var(--foreground)_/_0.72)] transition hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--foreground))]"
         >
           {link.label}
         </a>
