@@ -82,8 +82,11 @@ mono-label 0.75  uppercase  tracking 0.18em  weight 500
 ```
 
 **Rules**
+- Loaded via `next/font` (self-hosted, `font-display: swap`, exposed as
+  `--font-geist` / `--font-geist-mono` / `--font-fraunces`). Never a
+  render-blocking Google Fonts CSS `@import`.
 - Reading measure ≤ ~720px. Long lines are a tell of a non-designer.
-- `font-variant-numeric: tabular-nums` for all metrics.
+- `font-variant-numeric: tabular-nums` for all metrics (and anything that counts up).
 - Never synthesize bold/italic; load the real weights.
 - No Inter, Roboto, Arial, or system-default as a primary face.
 
@@ -96,9 +99,12 @@ mono-label 0.75  uppercase  tracking 0.18em  weight 500
 - **Mono section markers** number and label each section (`01 / EXPERIENCE`).
 - **8pt rhythm.** Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 96. Vertical space
   is generous — let sections breathe.
-- **Radius `0.375rem`.** Precise, not bubbly. Sharp corners on full-bleed blocks.
-- **Borders over shadows.** Hairline `--border` separators read more engineered
-  than soft drop shadows. One subtle shadow max per card if needed.
+- **Radius hierarchy.** Cards `rounded-lg` (0.5rem); nested elements `rounded-md`
+  (0.375rem); pills and buttons stay `rounded-full`. Precise, not bubbly — never
+  the old `2rem` blobs. Sharp corners on full-bleed blocks.
+- **Borders over shadows.** Hairline `--border` carries the light cards with no
+  drop shadow. Borderless dark panels get one restrained `shadow-xl` to lift off
+  the paper. Never heavy `0_18px_50px`-style shadows on everything.
 
 ---
 
@@ -114,17 +120,36 @@ duration 0.6, ease "power2.out", stagger 0.06
 ScrollTrigger start "top 85%", once: true
 ```
 
-**Signature moment (exactly one):** **pinned career timeline scrub.** The
-experience section pins while a timeline/progress indicator advances with scroll
-position. This is where motion is allowed to show off — nowhere else.
+**Motion budget — two registers, a few moments each. Nothing else animates.**
+
+*Load (the first impression):*
+- **Masked hero headline reveal** — `SplitText` splits the headline into lines,
+  each rising from behind a clip mask, staggered (`yPercent 110 → 0`). Waits on
+  `document.fonts.ready` so the lines break at the right points. Hero is marked
+  `[data-hero]`, not `[data-reveal]`.
+- The rest of the hero (eyebrow, summary, body, CTAs, aside) fades up in a short
+  stagger just after.
+
+*Scroll:*
+- **Section reveals** — the default fade + 16px rise as content enters.
+- **Count-up metrics** — the metric strip ticks from 0 to its value on enter
+  (`tabular-nums` so the width doesn't jitter).
+- **Pinned career-timeline scrub** (the scroll signature) — the experience
+  section's left column pins, a cobalt rail fills with scroll, dots light cobalt
+  as they pass center. Desktop only (≥1024px).
+
+Considered and **rejected as over-reach:** magnetic buttons, parallax,
+scroll-progress bar. Restraint is the point.
 
 **Discipline rules**
-- Not everything animates. Hero, section entrances, and the timeline. That's it.
 - Gate all motion behind `gsap.matchMedia()` + `prefers-reduced-motion: reduce`
-  → no transform/opacity animation, content visible immediately.
+  → no transform/opacity animation, content (and final metric values) visible
+  immediately.
 - Animate only `transform` and `opacity`. Never animate layout properties.
 - Reveals fire `once: true`; no replay-on-scroll-up jitter.
 - Target 60fps. If a moment can't hold frame rate, cut it.
+- One Lenis + ScrollTrigger provider (`smooth-scroll.tsx`) drives everything via
+  selectors, so server-rendered markup just carries `data-*` hooks.
 
 ---
 
@@ -148,4 +173,13 @@ Reject any of these on sight:
   spectacle).
 - **Accent: deep cobalt** over amber/gold (amber read generic-premium) and over
   terminal-lime (too junior-hacker for the senior-but-hands-on target).
-- **Signature motion: pinned career timeline scrub**, single moment only.
+- **Signature scroll motion: pinned career timeline scrub.** Later joined by a
+  load-time masked hero reveal and scroll-time count-up metrics (design-review +
+  follow-up). Magnetic button and scroll-progress bar were considered and cut.
+- **Radius/shadows aligned** (design-review): bubbly `2rem` → `rounded-lg`/`md`
+  hierarchy; heavy drop shadows → hairline borders + one `shadow-xl` on dark panels.
+- **Fonts self-hosted** via `next/font`, replacing the render-blocking `@import`.
+- **Contact details hidden** from the rendered page (email/phone); a clickable
+  `mailto:` is kept so recruiters can still reach out.
+- **`/blog` removed** for now (no content); sitemap trimmed to the homepage.
+- **OG share image recolored** gold → cobalt to match the brand on link previews.
