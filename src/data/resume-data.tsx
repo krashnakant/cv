@@ -53,7 +53,7 @@ export const RESUME_DATA = {
     },
     {
       issuer: "Google Cloud",
-      name: "GCP Generative AI Leader certified",
+      name: "Generative AI Leader",
       year: "2026"
     }
   ],

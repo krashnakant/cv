@@ -111,6 +111,12 @@ export default function RootLayout({
                   "name": "Google Cloud Professional Cloud Architect",
                   "credentialCategory": "Professional Certification",
                   "dateCreated": "2025"
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "name": "Google Cloud Generative AI Leader",
+                  "credentialCategory": "Professional Certification",
+                  "dateCreated": "2026"
                 }
               ],
               "alumniOf": {
