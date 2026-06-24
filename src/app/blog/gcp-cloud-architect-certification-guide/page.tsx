@@ -16,21 +16,45 @@ import {
   MailIcon
 } from "lucide-react";
 import { RESUME_DATA } from "@/data/resume-data";
+import { BLOG_POSTS } from "@/data/blog-data";
+
+const POST = BLOG_POSTS.find((p) => p.slug === "gcp-cloud-architect-certification-guide")!;
+const POST_URL = `https://krashna.in/blog/${POST.slug}`;
 
 export const metadata: Metadata = {
   title: "How I Passed the GCP Professional Cloud Architect Exam in 2025 | Krashna Kant Chaurasia",
   description: "Complete study guide with resources, tips, and a 3-month preparation plan for passing the Google Cloud Professional Cloud Architect certification exam.",
+  alternates: { canonical: POST_URL },
   openGraph: {
     title: "How I Passed the GCP Professional Cloud Architect Exam in 2025",
     description: "Complete study guide with resources, tips, and a 3-month preparation plan for the GCP Professional Cloud Architect certification.",
     type: "article",
+    url: POST_URL,
     authors: ["Krashna Kant Chaurasia"],
   },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: POST.title,
+  description: metadata.description,
+  datePublished: POST.date,
+  dateModified: POST.date,
+  author: { "@type": "Person", name: RESUME_DATA.name, url: "https://krashna.in" },
+  publisher: { "@type": "Person", name: RESUME_DATA.name, url: "https://krashna.in" },
+  image: "https://krashna.in/og",
+  mainEntityOfPage: { "@type": "WebPage", "@id": POST_URL },
+  url: POST_URL,
 };
 
 export default function GCPCertificationGuidePage() {
   return (
     <main className="container relative mx-auto scroll-my-12 p-6 md:p-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <article className="mx-auto w-full max-w-3xl">
         {/* Back button */}
         <Link href="/blog">
