@@ -42,3 +42,7 @@ next-env.d.ts
 .serena/
 .gstack/
 .env*
+
+# local generated resume artifacts
+/output/
+/scripts/
