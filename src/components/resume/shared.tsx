@@ -50,7 +50,7 @@ export function ResumeIntro({
           className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--foreground)_/_0.14)] px-5 py-3 text-sm font-semibold text-[hsl(var(--foreground))] transition hover:border-[hsl(var(--primary))]"
         >
           <ArrowRightIcon className="h-4 w-4" />
-          Jump to projects
+          See selected work
         </a>
       </div>
     </div>
@@ -106,13 +106,13 @@ export function SharedClosingPanel({ tone = "light" }: { tone?: "light" | "dark"
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl space-y-3">
           <p className={["text-xs font-semibold uppercase tracking-[0.32em]", isDark ? "text-cyan-200" : "text-[hsl(var(--primary))]"].join(" ")}>
-            Open To New Roles
+            Open to Senior and Lead opportunities
           </p>
           <h2 className={["text-3xl font-semibold tracking-[-0.04em]", isDark ? "text-white" : "text-[hsl(var(--foreground))]"].join(" ")}>
-            Senior full stack leadership with hands-on delivery still intact.
+            Need a senior engineer who can shape the architecture and still ship the work?
           </h2>
           <p className={["text-base leading-7", isDark ? "text-white/72" : "text-[hsl(var(--foreground)_/_0.72)]"].join(" ")}>
-            Based in Mannheim, Germany. Permanent resident. Available with three months notice. References and recommendation letters are available on request.
+            I am open to Senior Software Engineer, Tech Lead, and Lead Software Engineer roles in Germany and across the EU. Based in Mannheim, with permanent residency and no visa sponsorship required.
           </p>
         </div>
 

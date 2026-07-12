@@ -15,9 +15,9 @@ export const viewport:Viewport  = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://krashna.in'),
-  title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-  description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
-  keywords: "Full Stack Developer, Tech Lead, TypeScript, React, Node.js, Java, AWS, GCP, DevOps, Microservices, Team Leadership, Software Architecture",
+  title: "Krashna Kant Chaurasia | Senior Software Engineer",
+  description: "Senior Software Engineer with 12+ years building cloud-native enterprise platforms with TypeScript, Node.js, Java, React, GCP, and Terraform. Open to Senior and Lead roles.",
+  keywords: "Tech Lead, Lead Software Engineer, Cloud-Native Architecture, TypeScript, Node.js, Java, React, GCP, Terraform, Enterprise Platforms, Germany",
   authors: [{ name: "Krashna Kant Chaurasia" }],
   creator: "Krashna Kant Chaurasia",
   publisher: "Krashna Kant Chaurasia",
@@ -25,22 +25,22 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_US",
     url: "https://krashna.in",
-    title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-    description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP. Led teams at Bauhaus, specialized in cloud infrastructure and microservices architecture.",
+    title: "Krashna Kant Chaurasia | Senior Software Engineer",
+    description: "Senior software engineering for cloud-native enterprise platforms across architecture, implementation, infrastructure, and delivery.",
     siteName: "Krashna Kant Chaurasia - Resume",
     images: [
       {
         url: "https://krashna.in/og",
         width: 1200,
         height: 630,
-        alt: "Krashna Kant Chaurasia - Senior Full Stack Developer & Tech Lead",
+        alt: "Krashna Kant Chaurasia - Senior Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead",
-    description: "Senior Full Stack Developer & Tech Lead with 12+ years experience in TypeScript, React, Node.js, Java, AWS, GCP.",
+    title: "Krashna Kant Chaurasia | Senior Software Engineer",
+    description: "Senior software engineering for cloud-native enterprise platforms across architecture, implementation, infrastructure, and delivery.",
     images: ["https://krashna.in/og"],
   },
   robots: {
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-       <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
+       <title>Krashna Kant Chaurasia | Senior Software Engineer</title>
         <link rel="canonical" href="https://krashna.in" />
         <meta name="theme-color" content="#1d4ed8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -84,7 +84,7 @@ export default function RootLayout({
               "name": "Krashna Kant Chaurasia",
               "url": "https://krashna.in",
               "image": "https://avatars.githubusercontent.com/u/26169918?v=4",
-              "jobTitle": "Senior Full Stack Developer & Tech Lead",
+              "jobTitle": "Senior Software Engineer",
               "worksFor": {
                 "@type": "Organization",
                 "name": "Bauhaus",

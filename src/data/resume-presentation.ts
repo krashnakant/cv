@@ -4,16 +4,16 @@ export const QUICK_METRICS = [
     label: "years building and shipping software"
   },
   {
-    value: "4",
-    label: "developers led across cross-functional delivery"
+    value: "2",
+    label: "current Google Cloud certifications"
   },
   {
-    value: "100K+",
-    label: "monthly requests served in platform work"
+    value: "DACH",
+    label: "enterprise product delivery across European markets"
   },
   {
-    value: "2025",
-    label: "GCP Professional Cloud Architect certified"
+    value: "GCP",
+    label: "Professional Cloud Architect certified since 2025"
   }
 ] as const;
 

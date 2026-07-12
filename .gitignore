@@ -41,3 +41,4 @@ next-env.d.ts
 # serena mcp server
 .serena/
 .gstack/
+.env*

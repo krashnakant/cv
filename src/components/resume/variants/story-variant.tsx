@@ -22,8 +22,8 @@ export function StoryVariant() {
       body: "Infrastructure automation, deployment pipelines, and production reliability became part of the job."
     },
     {
-      title: "Now lead broader delivery",
-      body: "Today the role includes architecture, cross-functional alignment, mentoring, and platform continuity."
+      title: "Now own broader delivery",
+      body: "Current work includes architecture, cross-functional alignment, mentoring, and platform continuity."
     }
   ];
 
@@ -36,7 +36,7 @@ export function StoryVariant() {
           <div>
             <p className="font-mono-label text-xs uppercase tracking-[0.32em] text-blue-700">{RESUME_DATA.name}</p>
             <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
-              Senior Full Stack engineering, cloud delivery, and technical leadership presented as one clean narrative.
+              Senior Software Engineer · GCP Professional Cloud Architect · Open to senior and lead roles
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -63,10 +63,10 @@ export function StoryVariant() {
 
         <section data-reveal className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <ResumeIntro
-            eyebrow="Profile"
-            title="Senior Full Stack Developer & Interim Tech Lead, shaped by delivery across products, platforms, and cloud systems."
+            eyebrow="Senior software engineering"
+            title="I build cloud-native platforms from architecture to production."
             summary={RESUME_DATA.about}
-            body="This site follows the career the same way it tends to come up in conversation: strong backend roots, growing cloud and DevOps ownership, and then broader product and team responsibility."
+            body="My strongest work sits where product engineering, backend systems, cloud infrastructure, and technical coordination overlap—turning complex enterprise requirements into systems teams can build, operate, and evolve."
           />
 
           <aside className="space-y-4 lg:pt-6">
@@ -111,7 +111,7 @@ export function StoryVariant() {
           <div className="rounded-lg bg-stone-900 p-8 text-stone-50 shadow-xl">
             <p className="font-mono-label text-xs uppercase tracking-[0.28em] text-blue-300">Profile</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em]">
-              Architecting enterprise-scale products with measurable business impact.
+              Building enterprise products and the delivery systems behind them.
             </h2>
             <p className="mt-5 text-base leading-8 text-stone-300">{RESUME_DATA.summary}</p>
           </div>
@@ -177,6 +177,14 @@ export function StoryVariant() {
               <article key={project.title + project.description} className="rounded-lg border border-stone-300/60 bg-white/80 p-6">
                 <h3 className="text-2xl font-semibold tracking-[-0.04em]">{project.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-stone-700">{project.description}</p>
+                {"caseStudyHref" in project && (
+                  <a
+                    href={project.caseStudyHref}
+                    className="mt-4 inline-flex text-sm font-semibold text-blue-800 underline decoration-blue-300 underline-offset-4"
+                  >
+                    Read the case study
+                  </a>
+                )}
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.techStack.slice(0, 5).map((stack) => (
                     <span key={stack} className="rounded-full bg-stone-100 px-3 py-1 text-xs text-stone-600">
@@ -268,18 +276,6 @@ export function StoryVariant() {
                     <p className="text-base leading-7 text-stone-100">“{recommendation.quote}”</p>
                   </blockquote>
                 </article>
-              ))}
-            </div>
-
-            <div className="mt-6 border-t border-stone-700 pt-6 space-y-4">
-              <p className="font-mono-label text-xs uppercase tracking-[0.24em] text-stone-400">Additional recommendations</p>
-              {RESUME_DATA.testimonials.map((testimonial) => (
-                <blockquote key={testimonial.quote} className="space-y-2 border-l border-stone-700 pl-4">
-                  <p className="text-sm leading-7 text-stone-200">“{testimonial.quote}”</p>
-                  <footer className="text-sm text-stone-400">
-                    {testimonial.author} · {testimonial.relationship} at {testimonial.company}
-                  </footer>
-                </blockquote>
               ))}
             </div>
           </div>

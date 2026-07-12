@@ -77,7 +77,7 @@ export async function GET() {
                 letterSpacing: "2px",
               }}
             >
-              Senior Full Stack Developer & Tech Lead
+              Senior Software Engineer
             </div>
 
             {/* Name */}
@@ -102,7 +102,7 @@ export async function GET() {
                 maxWidth: "600px",
               }}
             >
-              10+ years building scalable applications. GCP Certified. Based in Germany.
+              12+ years building cloud-native enterprise platforms. GCP certified. Based in Germany.
             </div>
 
             {/* Skills badges */}
@@ -114,7 +114,7 @@ export async function GET() {
                 flexWrap: "wrap",
               }}
             >
-              {["TypeScript", "React", "Node.js", "GCP", "AWS", "Kubernetes"].map(
+              {["TypeScript", "Node.js", "Java", "React", "GCP", "Terraform"].map(
                 (skill) => (
                   <div
                     key={skill}
