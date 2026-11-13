@@ -107,7 +107,7 @@ One family: **Archivo**, loaded through `next/font` with its width axis.
   Developer (no "Interim Tech Lead"), Bauhaus is told as the sole-engineer
   story. The only figures kept are the three scale numbers (100K+ monthly
   requests, 10K+ daily transactions, 50K+ daily requests) and the 70%
-  deployment-time cut. No other percentages.
+  deployment-time cut (from restructuring the monorepo for granular deploys). No other percentages.
 - **Case-study pages use the same system:** a shorter green banner, the notice
   strip for scope, then hairline rows. The Bauhaus role links to its case study.
 - **Only named LinkedIn recommendations are shown.**

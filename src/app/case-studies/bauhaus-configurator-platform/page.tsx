@@ -145,7 +145,7 @@ export default function BauhausConfiguratorCaseStudyPage() {
           </h2>
           <p className="mt-6 max-w-[68ch] leading-relaxed">
             The work established shared platform patterns for supplier integrations, cloud infrastructure, and
-            automated delivery without relying on unverified percentage claims.
+            automated delivery.
           </p>
           <a
             href="https://www.bauhaus.info/konfiguratoren"

@@ -75,7 +75,7 @@ export const RESUME_DATA = {
       end: "Present",
       techStack: ["GCP", "NestJS", "Firestore", "GitHub Actions", "React", "Terraform", "Serverless", "Microservices"],
       description:
-        "Started the enterprise product configurator platform as its sole engineer, defining the architecture and building the initial product, integration, cloud and delivery foundations. Continue to evolve the platform, now serving 100K+ monthly requests, with two external engineers who joined later. Built the GCP infrastructure from scratch with Terraform and Firestore, cutting deployment time by 70%. Set up CI/CD pipelines in GitHub Actions to make releases repeatable. Designed the APIs and integration patterns for external supplier configurators, working across product, UX and vendor teams."
+        "Started the enterprise product configurator platform as its sole engineer, defining the architecture and building the initial product, integration, cloud and delivery foundations. Continue to evolve the platform, now serving 100K+ monthly requests, with two external engineers who joined later. Built the GCP infrastructure from scratch with Terraform and Firestore, with CI/CD pipelines in GitHub Actions to make releases repeatable. Cut deployment time by 70% by restructuring the monorepo for granular deployments, so a change ships only the applications it touches instead of everything. Designed the APIs and integration patterns for external supplier configurators, working across product, UX and vendor teams."
     },
     {
       company: "HSE",
