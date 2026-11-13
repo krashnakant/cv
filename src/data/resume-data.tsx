@@ -75,7 +75,7 @@ export const RESUME_DATA = {
       end: "Present",
       techStack: ["GCP", "NestJS", "Firestore", "GitHub Actions", "React", "Terraform", "Serverless", "Microservices"],
       description:
-        "Led a cross-functional team of 4 developers architecting and delivering an enterprise product configurator platform serving 100K+ monthly requests. Built GCP cloud infrastructure from scratch using Terraform and Firestore, achieving 99.9% uptime and reducing deployment time by 70%. Implemented end-to-end CI/CD pipelines and DevOps practices via GitHub Actions, increasing development velocity by 40% and enabling zero-downtime releases. Collaborated with UX, product, and external configurator vendors to deliver seamless integrations and a consistent user experience across platforms."
+        "Led a cross-functional team of 4 developers building an enterprise product configurator platform that serves 100K+ monthly requests. Built the GCP infrastructure from scratch with Terraform and Firestore, reaching 99.9% uptime and cutting deployment time by 70%. Set up end-to-end CI/CD pipelines in GitHub Actions, enabling zero-downtime releases. Integrated external configurator vendors' systems, working with UX and product to keep the experience consistent across platforms."
     },
     {
       company: "HSE",
@@ -86,7 +86,7 @@ export const RESUME_DATA = {
       end: "2021",
       techStack: ["Kotlin", "Spring Boot", "React", "AWS", "Microservices", "Docker"],
       description:
-        "Built and maintained an e-commerce platform handling 10K+ daily transactions with 99.95% uptime across Germany, Austria and Switzerland. Designed event-driven microservices architecture enabling real-time communication between Docker-containerized services. Led API design and development consumed by product presentation and back-office teams, and optimized checkout flow reducing cart abandonment by 25%. Worked closely with product managers and designers in agile sprints to prioritize features for maximum business impact."
+        "Built and maintained an e-commerce platform handling 10K+ daily transactions at 99.95% uptime across Germany, Austria and Switzerland. Cut cart abandonment by 25% by optimizing the checkout flow. Led design and development of the APIs used by the product presentation and back-office teams. Designed an event-driven microservices architecture for real-time communication between Docker-containerized services. Managed the services' own AWS infrastructure alongside full stack feature work."
     },
     {
       company: "Harman International",
@@ -97,7 +97,7 @@ export const RESUME_DATA = {
       end: "2019",
       techStack: ["Java 8", "Spring Boot", "Node.js", "Terraform", "Ansible", "Spinnaker", "Jenkins", "Datadog"],
       description:
-        "Worked across key projects including Samsung BIXBY AI, British Telecom IoT, and GM NG-NPM. Designed and developed REST APIs and backend services for enterprise clients including British Telecom, processing 50K+ daily requests using Java 8 and Spring Boot. Built modular, fully unit-tested service layers and optimized internal API implementations, increasing analytics reporting speed by 24%. Wrote multiple Node.js and Angular applications for DevOps task automation, improving developer productivity and reducing manual operational overhead. Architected cloud infrastructure for Samsung BIXBY AI focused on European markets, reducing provisioning time by 80% using Terraform and Ansible IaC. Automated Red/Black deployments with Spinnaker and Jenkins, and implemented logging and monitoring using FluentD, Datadog and Grafana, cutting incident resolution time by 45%."
+        "Architected cloud infrastructure for Samsung Bixby in European markets, cutting provisioning time by 80% with Terraform and Ansible. Automated Red/Black deployments with Spinnaker and Jenkins, and set up logging and monitoring with FluentD, Datadog and Grafana, cutting incident resolution time by 45%. Built REST APIs and backend services in Java 8 and Spring Boot for enterprise clients including British Telecom, processing 50K+ daily requests. Built modular, fully unit-tested service layers and optimized internal APIs, increasing analytics reporting speed by 24%."
     },
     {
       company: "Fiserv",
@@ -107,7 +107,7 @@ export const RESUME_DATA = {
       start: "2013",
       end: "2014",
       techStack: ["Java", "JSP", "Spring MVC", "REST Services"],
-      description: "Developed web application features and REST service modules for a global fintech and payments platform using Java, JSP and Spring MVC architecture. Built MVC controllers, service layers and repository modules based on business requirements, pairing with senior engineers to deliver client solutions. Improved existing web application functionality and contributed to requirement analysis and implementation of core banking features."
+      description: "Built web application features and REST service modules for a global fintech and payments platform using Java, JSP and Spring MVC."
     }
   ],
   skills: [
@@ -127,7 +127,7 @@ export const RESUME_DATA = {
     "Docker",
     "Terraform",
     "CI/CD",
-    "Github Actions",
+    "GitHub Actions",
     "PostgreSQL",
     "Datadog",
     "Grafana",
@@ -145,7 +145,7 @@ export const RESUME_DATA = {
         "React",
         "NestJS",
         "Firestore",
-        "Github Actions",
+        "GitHub Actions",
         "Terraform",
         "GCP",
         "External Configurator Integration"
@@ -168,10 +168,10 @@ export const RESUME_DATA = {
       }
     },
     {
-      title: "Samsung BIXBY AI",
+      title: "Samsung Bixby",
       techStack: ["AWS", "GCP", "Terraform", "Ansible", "Spinnaker", "Jenkins"],
       description:
-        "Cloud infrastructure and deployment automation for Samsung BIXBY AI, focused on European markets and faster, repeatable provisioning.",
+        "Cloud infrastructure and deployment automation for Samsung Bixby, focused on European markets and faster, repeatable provisioning.",
 
       link: {
         label: "samsung.com/de/apps/bixby",
