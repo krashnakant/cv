@@ -7,11 +7,11 @@ export const RESUME_DATA = {
   location: "Mannheim, Germany, CET",
   locationLink: "https://www.google.com/maps/place/Mannheim",
   about:
-    "Senior Full Stack Developer & Interim Tech Lead with 12+ years of experience architecting and delivering enterprise-scale applications across Europe.",
+    "Senior Software Engineer with 12+ years of experience building cloud-native enterprise platforms across Europe.",
   careerObjective:
-    "Targeting technical leadership roles where cloud-native architecture, product delivery, and team mentorship all matter.",
+    "Open to Senior Software Engineer, Tech Lead, and Lead Software Engineer roles where architecture, product delivery, and technical leadership meet.",
   summary:
-    "GCP Professional Cloud Architect certified (2025). Proven track record of leading cross-functional teams, building cloud-native infrastructure, and driving digital transformation. Deep expertise in TypeScript, React, Node.js, Java and cloud DevOps, with a strong focus on scalability, reliability and measurable business impact.",
+    "I work across the full delivery path: shaping architecture, building backend and frontend systems, automating cloud infrastructure, and helping teams ship reliably. My core stack spans TypeScript, Node.js, Java, React, GCP, Terraform, CI/CD, and observability.",
   avatarUrl: "https://avatars.githubusercontent.com/u/26169918?v=4",
   contact: {
     email: "krashna.chaurasia@yahoo.com",
@@ -70,12 +70,12 @@ export const RESUME_DATA = {
       company: "Bauhaus AG",
       link: "https://bauhaus.info",
       badges: ["Germany", "Hybrid"],
-      title: "Senior Full Stack Developer -> Interim Tech Lead",
+      title: "Senior Full Stack Developer",
       start: "2021",
       end: "Present",
       techStack: ["GCP", "NestJS", "Firestore", "GitHub Actions", "React", "Terraform", "Serverless", "Microservices"],
       description:
-        "Led a cross-functional team of 4 developers building an enterprise product configurator platform that serves 100K+ monthly requests. Built the GCP infrastructure from scratch with Terraform and Firestore, reaching 99.9% uptime and cutting deployment time by 70%. Set up end-to-end CI/CD pipelines in GitHub Actions, enabling zero-downtime releases. Integrated external configurator vendors' systems, working with UX and product to keep the experience consistent across platforms."
+        "Started the enterprise product configurator platform as its sole engineer, defining the architecture and building the initial product, integration, cloud and delivery foundations. Continue to evolve the platform, now serving 100K+ monthly requests, with two external engineers who joined later. Built the GCP infrastructure from scratch with Terraform and Firestore, cutting deployment time by 70%. Set up CI/CD pipelines in GitHub Actions to make releases repeatable. Designed the APIs and integration patterns for external supplier configurators, working across product, UX and vendor teams."
     },
     {
       company: "HSE",
@@ -86,7 +86,7 @@ export const RESUME_DATA = {
       end: "2021",
       techStack: ["Kotlin", "Spring Boot", "React", "AWS", "Microservices", "Docker"],
       description:
-        "Built and maintained an e-commerce platform handling 10K+ daily transactions at 99.95% uptime across Germany, Austria and Switzerland. Cut cart abandonment by 25% by optimizing the checkout flow. Led design and development of the APIs used by the product presentation and back-office teams. Designed an event-driven microservices architecture for real-time communication between Docker-containerized services. Managed the services' own AWS infrastructure alongside full stack feature work."
+        "Built and operated an e-commerce platform handling 10K+ daily transactions across Germany, Austria and Switzerland. Designed the APIs and event-driven services used by the product presentation and back-office teams. Contributed to checkout improvements with product managers and designers. Managed the services' own AWS infrastructure alongside full stack feature work."
     },
     {
       company: "Harman International",
@@ -97,7 +97,7 @@ export const RESUME_DATA = {
       end: "2019",
       techStack: ["Java 8", "Spring Boot", "Node.js", "Terraform", "Ansible", "Spinnaker", "Jenkins", "Datadog"],
       description:
-        "Architected cloud infrastructure for Samsung Bixby in European markets, cutting provisioning time by 80% with Terraform and Ansible. Automated Red/Black deployments with Spinnaker and Jenkins, and set up logging and monitoring with FluentD, Datadog and Grafana, cutting incident resolution time by 45%. Built REST APIs and backend services in Java 8 and Spring Boot for enterprise clients including British Telecom, processing 50K+ daily requests. Built modular, fully unit-tested service layers and optimized internal APIs, increasing analytics reporting speed by 24%."
+        "Moved from backend product development into cloud and DevOps ownership across Samsung Bixby, British Telecom IoT and GM NG-NPM. Built Java and Spring Boot REST services for enterprise clients including British Telecom, processing 50K+ daily requests. Provisioned cloud infrastructure with Terraform and Ansible. Automated deployments with Spinnaker and Jenkins, and strengthened observability with FluentD, Datadog and Grafana. Created Node.js and Angular tools for operational automation."
     },
     {
       company: "Fiserv",
@@ -111,8 +111,10 @@ export const RESUME_DATA = {
     }
   ],
   skills: [
+    "Technical Leadership",
+    "Cloud-Native Architecture",
+    "System Design",
     "TypeScript",
-    "JavaScript",
     "Java 8-21",
     "Kotlin",
     "React/Next.js",
@@ -120,23 +122,12 @@ export const RESUME_DATA = {
     "Spring Boot",
     "NestJS",
     "API Design",
-    "System Design",
     "Microservices",
-    "AWS",
     "GCP",
-    "Docker",
+    "AWS",
     "Terraform",
     "CI/CD",
-    "GitHub Actions",
-    "PostgreSQL",
-    "Datadog",
-    "Grafana",
-    "FluentD",
-    "Team Leadership",
-    "Agile/Scrum",
-    "Cross-cultural Communication",
-    "Stakeholder Management",
-    "Mentoring & Coaching"
+    "Observability"
   ],
   projects: [
     {
@@ -150,12 +141,12 @@ export const RESUME_DATA = {
         "GCP",
         "External Configurator Integration"
       ],
-      description: "Enterprise product configurator platform with supplier integrations, cloud-native delivery, and a consistent user experience across external configurator systems.",
+      description: "Started and architected an enterprise product configurator platform as its sole initial engineer, establishing the foundation before two external engineers joined the team.",
       link: {
         label: "bauhaus.info/konfiguratoren",
         href: "https://www.bauhaus.info/konfiguratoren"
-
-      }
+      },
+      caseStudyHref: "/case-studies/bauhaus-configurator-platform"
     },
     {
       title: "HSE",
@@ -214,18 +205,4 @@ export const RESUME_DATA = {
         "I've worked with many Full Stack Developers but Krashna was one of the best colleagues I ever worked with. He consistently gave 100% of himself to our team, was tech-savvy, and understood the problem from the grass root level."
     }
   ],
-  testimonials: [
-    {
-      quote: "His deep understanding of cloud architecture and ability to mentor junior developers made him invaluable to our team's success.",
-      author: "Engineering Manager",
-      company: "HSE",
-      relationship: "Former Manager"
-    },
-    {
-      quote: "Krashna's technical expertise and collaborative approach helped us achieve 99.9% uptime on critical infrastructure.",
-      author: "DevOps Lead",
-      company: "Harman",
-      relationship: "Colleague"
-    }
-  ]
 } as const;

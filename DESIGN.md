@@ -102,10 +102,15 @@ One family: **Archivo**, loaded through `next/font` with its width axis.
   Editorial" (warm paper, cobalt, Geist + mono labels, GSAP scroll motion).
 - **GSAP, Lenis, and lucide-react removed.** The page is one server component
   with no client JavaScript of its own.
-- **Metric strip and project cards cut.** The numbers already sit in the role
-  bullets, and the projects repeated the roles.
-- **Only named LinkedIn recommendations are shown.** The unattributed
-  testimonials stay in the data file but are not rendered.
+- **Metric strip and project cards cut.** The projects repeated the roles.
+- **Facts follow the July 2026 positioning pass:** title is Senior Full Stack
+  Developer (no "Interim Tech Lead"), Bauhaus is told as the sole-engineer
+  story. The only figures kept are the three scale numbers (100K+ monthly
+  requests, 10K+ daily transactions, 50K+ daily requests) and the 70%
+  deployment-time cut. No other percentages.
+- **Case-study pages use the same system:** a shorter green banner, the notice
+  strip for scope, then hairline rows. The Bauhaus role links to its case study.
+- **Only named LinkedIn recommendations are shown.**
 - **Contact details stay hidden** from the rendered page (email/phone); a
   `mailto:` link is kept.
 - **OG share image and theme colour** recoloured cobalt → signal green.

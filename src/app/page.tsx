@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { RESUME_DATA } from "@/data/resume-data";
 
 const { work, contact } = RESUME_DATA;
@@ -32,13 +34,17 @@ const linkCss = segments
 
 // shortcut: groups are index ranges into the flat skills list, regroup in resume-data if that list is reordered
 const skillGroups = [
-  ["Languages", 0, 4],
-  ["Frameworks", 4, 8],
-  ["Architecture", 8, 11],
-  ["Cloud and delivery", 11, 17],
-  ["Data and observability", 17, 21],
-  ["Leadership", 21, RESUME_DATA.skills.length]
+  ["Leadership and architecture", 0, 3],
+  ["Languages", 3, 6],
+  ["Frameworks", 6, 10],
+  ["Service design", 10, 12],
+  ["Cloud and delivery", 12, RESUME_DATA.skills.length]
 ] as const;
+
+// A project carries the case study for the employer of the same name
+const caseStudies: Record<string, string> = Object.fromEntries(
+  RESUME_DATA.projects.flatMap((p) => ("caseStudyHref" in p ? [[p.title, p.caseStudyHref]] : []))
+);
 
 const history = [
   ...RESUME_DATA.certifications.map((c) => ({ year: c.year, what: c.name, where: c.issuer })),
@@ -74,8 +80,8 @@ export default function Page() {
             All systems operational.
           </p>
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-white/85">
-            Senior full stack developer and interim tech lead, based in Mannheim. In production since{" "}
-            {segments[0].start}: four companies, two countries, and a current platform holding 99.9% uptime.
+            Senior software engineer based in Mannheim. In production since {segments[0].start}: four companies, two
+            countries, and a platform started as its sole engineer that now serves 100K+ monthly requests.
           </p>
 
           <nav aria-label="Career timeline" className="mt-12 flex gap-1.5 sm:gap-2">
@@ -161,6 +167,16 @@ export default function Page() {
                     ))}
                   </ul>
                   <p className="mt-4 max-w-[68ch] text-sm text-muted">{role.techStack.join(", ")}</p>
+                  {caseStudies[role.company] && (
+                    <p className="mt-4">
+                      <Link
+                        href={caseStudies[role.company]}
+                        className="font-semibold text-signal underline underline-offset-4 hover:text-signal-deep"
+                      >
+                        Read the case study
+                      </Link>
+                    </p>
+                  )}
                 </div>
               </article>
             ))}

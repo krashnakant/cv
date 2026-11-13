@@ -41,3 +41,8 @@ next-env.d.ts
 # serena mcp server
 .serena/
 .gstack/
+.env*
+
+# local generated resume artifacts
+/output/
+/scripts/

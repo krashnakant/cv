@@ -41,7 +41,3 @@ export const BLOG_POSTS: BlogPost[] = [
 export function getPublishedPosts(): BlogPost[] {
   return BLOG_POSTS.filter(post => post.published);
 }
-
-export function getAllPosts(): BlogPost[] {
-  return BLOG_POSTS;
-}
