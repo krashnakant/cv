@@ -1,17 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  style: ["italic"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
+// One family, two widths: the wdth axis gives the expanded display cut
+const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 import { ClarityAnalytics } from "@/components/clarity-analytics";
-import { SmoothScroll } from "@/components/smooth-scroll";
 
 import "./globals.css";
 import React from "react";
@@ -77,11 +70,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${fraunces.variable}`}>
+    <html lang="en" className={archivo.variable}>
       <head>
        <title>Krashna Kant Chaurasia | Senior Full Stack Developer & Tech Lead</title>
         <link rel="canonical" href="https://krashna.in" />
-        <meta name="theme-color" content="#1d4ed8" />
+        <meta name="theme-color" content="#136f45" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Krashna Kant CV" />
@@ -138,7 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        {children}
       </body>
       <Analytics />
       <ClarityAnalytics />

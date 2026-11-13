@@ -16,7 +16,7 @@ export async function GET() {
           justifyContent: "center",
           backgroundColor: "#FAF9F0",
           backgroundImage:
-            "radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.08) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(37, 99, 235, 0.05) 0%, transparent 50%)",
+            "radial-gradient(circle at 25% 25%, rgba(19, 111, 69, 0.08) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(19, 111, 69, 0.05) 0%, transparent 50%)",
           padding: "60px 80px",
           fontFamily: "system-ui, sans-serif",
         }}
@@ -29,7 +29,7 @@ export async function GET() {
             left: 0,
             right: 0,
             height: "8px",
-            background: "linear-gradient(90deg, #1d4ed8 0%, #3b82f6 50%, #1d4ed8 100%)",
+            background: "linear-gradient(90deg, #136f45 0%, #1f8f5c 50%, #136f45 100%)",
           }}
         />
 
@@ -50,7 +50,7 @@ export async function GET() {
             height={180}
             style={{
               borderRadius: "100%",
-              border: "5px solid #2563eb",
+              border: "5px solid #136f45",
               boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
             }}
           />
@@ -70,7 +70,7 @@ export async function GET() {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
-                color: "#2563eb",
+                color: "#136f45",
                 fontSize: "22px",
                 fontWeight: 600,
                 textTransform: "uppercase",
@@ -119,8 +119,8 @@ export async function GET() {
                   <div
                     key={skill}
                     style={{
-                      backgroundColor: "rgba(37, 99, 235, 0.12)",
-                      color: "#1e40af",
+                      backgroundColor: "rgba(19, 111, 69, 0.12)",
+                      color: "#0c5433",
                       padding: "8px 16px",
                       borderRadius: "20px",
                       fontSize: "18px",

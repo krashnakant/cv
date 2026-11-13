@@ -1,416 +1,91 @@
 @import "tailwindcss";
 
+/* The status page. See DESIGN.md. */
+@theme {
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+
+  --color-signal: #136f45;
+  --color-signal-deep: #0c5433;
+  --color-paper: #fafbf9;
+  --color-ink: #13241c;
+  --color-muted: #56665e;
+  --color-rule: #dce3de;
+  --color-tint: #edf5f0;
+  --color-notice: #7a4f08;
+  --color-notice-tint: #fdf6e7;
+}
 
 @layer base {
-  :root {
-    /* The Engineer's Editorial — ink on warm paper, deep cobalt accent */
-    --background: 40 20% 98%;
-    --foreground: 220 16% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 16% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 16% 11%;
-    /* Deep cobalt — used sparingly, functional not decorative */
-    --primary: 222 85% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 15% 95%;
-    --secondary-foreground: 220 16% 20%;
-    --muted: 40 12% 94%;
-    --muted-foreground: 220 8% 42%;
-    --accent: 222 60% 96%;
-    --accent-foreground: 220 16% 11%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 40 14% 88%;
-    --input: 40 14% 88%;
-    --ring: 222 85% 52%;
-    --radius: 0.375rem;
-
-    /* Animation timing */
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .dark {
-    --background: 220 18% 7%;
-    --foreground: 40 15% 92%;
-    --card: 220 16% 10%;
-    --card-foreground: 40 15% 92%;
-    --popover: 220 16% 10%;
-    --popover-foreground: 40 15% 92%;
-    --primary: 222 88% 62%;
-    --primary-foreground: 220 18% 7%;
-    --secondary: 220 14% 15%;
-    --secondary-foreground: 40 15% 90%;
-    --muted: 220 14% 16%;
-    --muted-foreground: 40 8% 60%;
-    --accent: 220 14% 18%;
-    --accent-foreground: 40 15% 92%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 15% 92%;
-    --border: 220 14% 18%;
-    --input: 220 14% 18%;
-    --ring: 222 88% 62%;
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  .banner :focus-visible {
+    outline-color: #fff;
+  }
+
+  [id] {
+    scroll-margin-top: 1.5rem;
+  }
+
+  /* The role you jumped to from the timeline stays marked */
+  article:target {
+    background-color: var(--color-tint);
+  }
+
+  [data-tick] {
+    transform-origin: bottom;
   }
 }
 
-
-@layer base {
-  * {
-    border-color: hsl(var(--border));
+/* The one motion moment: the timeline fills left to right on load */
+@keyframes tick-in {
+  from {
+    opacity: 0;
+    transform: scaleY(0.2);
   }
+}
 
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-feature-settings: "rlig" 1, "calt" 1, "liga" 1, "ss01" 1;
-    font-variant-numeric: tabular-nums;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: var(--font-geist), system-ui, sans-serif;
-  }
-
+@media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
-
-  /* Structural type is Geist; hierarchy from weight + size, not extra fonts */
-  h1, h2, h3 {
-    font-family: var(--font-geist), system-ui, sans-serif;
-    letter-spacing: -0.02em;
-  }
-
-  /* The one human moment — used exactly once (personal statement) */
-  .font-accent {
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-style: italic;
-    font-optical-sizing: auto;
-  }
-
-  /* Engineer texture — section markers, metric labels, timestamps */
-  .font-mono-label {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
-  }
-
-  /* Timeline dot lights to cobalt as it reaches center (set by GSAP) */
-  [data-timeline-dot].is-active {
-    background-color: hsl(222 85% 52%);
-  }
 }
 
-/* Entrance animations */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
+/* screen only: a page printed mid-animation would show half-drawn ticks */
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-tick] {
+    /* backwards, not both: a finished animation must not pin opacity over the hover dim */
+    animation: tick-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--i) * 18ms);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 8px hsl(var(--primary) / 0);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Animation utility classes */
-.animate-fade-up {
-  animation: fade-up 0.8s var(--ease-out-expo) forwards;
-  opacity: 0;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s var(--ease-out-quint) forwards;
-  opacity: 0;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.7s var(--ease-out-expo) forwards;
-  opacity: 0;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s var(--ease-out-expo) forwards;
-  opacity: 0;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 2.5s ease-in-out infinite;
-}
-
-/* Staggered animation delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
-
-/* CTA Button shine effect */
-.cta-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-shine::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shimmer 3s infinite;
-}
-
-.print-force-new-page {
-  page-break-before: always;
 }
 
 @media print {
-  /* Print page setup */
-  @page {
-    size: A4;
-    margin: 0.75in;
+  .banner,
+  [data-tick] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  
-  /* Optimize page breaks for better flow */
-  .print-avoid-break {
-    page-break-inside: avoid;
-  }
-  
-  /* Reduce excessive spacing in print */
-  .print-compact {
-    margin-bottom: 0.75rem !important;
-  }
-  
-  /* Allow more natural page breaks */
-  .print-auto-break {
-    page-break-inside: auto;
-  }
-  
-  /* Ensure better spacing between sections */
-  section {
-    margin-bottom: 1.25rem;
-  }
-  
-  /* Optimize grid layout for print */
-  .print-grid-optimization {
-    page-break-inside: auto;
-  }
-  
-  /* Hide sticky headers in print */
-  .sticky-header {
-    position: static !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  
-  /* Print-specific optimizations */
-  body {
-    font-size: 12pt !important;
-    line-height: 1.5 !important;
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-  
-  /* Better typography for print */
-  h1 {
-    font-size: 24pt !important;
-    margin-bottom: 0.75rem !important;
-    font-weight: 700 !important;
-  }
-  
+
+  /* Keep a heading with what follows it, and a bullet or quote in one piece */
   h2 {
-    font-size: 16pt !important;
-    margin-bottom: 0.75rem !important;
-    margin-top: 1.25rem !important;
-    font-weight: 700 !important;
+    break-after: avoid;
   }
-  
-  h3 {
-    font-size: 14pt !important;
-    margin-bottom: 0.25rem !important;
-    font-weight: 600 !important;
-  }
-  
-  h4 {
-    font-size: 12pt !important;
-    margin-bottom: 0.25rem !important;
-    font-weight: 500 !important;
-  }
-  
-  /* Compact contact info for print */
-  .print-contact-compact {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 1rem !important;
-    font-size: 10pt !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  /* Optimize cards for print */
-  .print-card-compact {
-    margin-bottom: 1rem !important;
-    padding: 0.75rem !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 0.5rem !important;
-    background: white !important;
-  }
-  
-  /* Optimize badges for print */
-  .print-badge {
-    font-size: 9pt !important;
-    padding: 0.125rem 0.25rem !important;
-    margin: 0.125rem !important;
-  }
-  
-  /* Optimize projects grid for print */
-  .print-projects-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-  }
-  
-  /* Remove unnecessary padding in print */
-  .print-no-padding {
-    padding: 0 !important;
-  }
-  
-  /* Clean print links */
-  a {
-    color: #333 !important;
-    text-decoration: none !important;
-  }
-}
 
-/* Print-friendly styles for sticky headers */
-@media print {
-  .sticky {
-    position: static !important;
+  li,
+  figure,
+  dl > div {
+    break-inside: avoid;
   }
-}
-
-/* Enhance sticky positioning for better mobile support */
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* Mobile-specific sticky fixes */
-@media screen and (max-width: 768px) {
-  /* Force hardware acceleration and proper sticky behavior on mobile */
-  .sticky {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-overflow-scrolling: touch;
-    will-change: transform;
-  }
-  
-  /* Ensure main containers don't interfere with sticky */
-  main {
-    overflow: visible;
-  }
-  
-  /* Mobile typography adjustments */
-  h1 {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
-  }
-  
-  h2 {
-    font-size: 1.75rem !important;
-  }
-}
-
-/* Enhanced visual styles */
-.gradient-bg {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
-}
-
-/* Smooth transitions for interactive elements */
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Focus styles for accessibility */
-.focus-visible:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-/* Better text rendering */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Improved link styles */
-a {
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: hsl(var(--primary));
 }
