@@ -148,7 +148,7 @@ export default function BauhausConfiguratorCaseStudyPage() {
             automated delivery.
           </p>
           <a
-            href="https://www.bauhaus.info/konfiguratoren"
+            href="https://www.bauhaus.info/s/service/produkte-nach-mass"
             target="_blank"
             rel="noreferrer"
             className="mt-8 inline-block rounded-md bg-signal px-5 py-3 font-semibold text-white hover:bg-signal-deep"
